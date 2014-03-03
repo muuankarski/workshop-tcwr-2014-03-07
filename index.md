@@ -1,5 +1,5 @@
 ---
-title: rOpenGov - R ekosysteemi avoimelle hallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle
+title: rOpenGov - R ekosysteemi avoimelle julkishallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle
 author: Markus Kainu
 date: Esitys TCWR-seminaarissa 7.3.2014 Turussa
 ---
@@ -7,26 +7,11 @@ date: Esitys TCWR-seminaarissa 7.3.2014 Turussa
 Mikä rOpenGov?
 ==============================================
 
-[ROpenGov](http://ropengov.github.io) on yhteisövetoinen ekosysteemi avoimen hallinnollisen datan ja laskennallisen yhteiskuntatutkimuksen R-paketeille. 
+[ROpenGov](http://ropengov.github.io) on yhteisövetoinen ekosysteemi avoimen julkishallinnollisen datan ja laskennallisen yhteiskuntatutkimuksen R-paketeille. 
 
 rOpenGov:iin on jo liittynyt useita riippumattomia [projekteja](http://ropengov.github.io/projects/), joissa kehitetään työkaluja R-kielelle erilaisten *laskennallisen yhteiskuntatutkimuksen* näkökulmasta kiinnostavien avointen datavirtojen hyödyntämiseen. rOpenGov perustettiin 2013 ja sen toimintaa ohjaa ns. *ydintiimi*, joka parhaillaan laatii projektin infrastruktuuria ja samalla kannustaa uusiin [kontrobuutioihin](http://ropengov.github.io/contribute/).
 
-
-Yhteisö
-------------------------------------------------
-
-
-
-
-Tavoiteet
--------------------------------------------------
-
-
-
-
-Kielipolitiikka
--------------------------------------------------
-
+Nopeasti lisääntyvät 
 
 ...
 
@@ -72,6 +57,21 @@ ROpenGov Hanke perustuuR tilastollinen ohjelmointikieli . Useimmat rOpenGov osat
 Olemme valittu keskittyä R Vahvan ekosysteemin ja käyttäjäyhteisö . Olemme aktiivisesti seuraamme kehitystä muilla kielillä , kuten Python ja Julia . Kielipolitiikka voidaan laajentaa tulevaisuudessa .
 
 -->
+
+Yhteisö
+------------------------------------------------
+
+
+
+
+Tavoiteet
+-------------------------------------------------
+
+
+
+
+Kielipolitiikka
+-------------------------------------------------
 
 
 Materiaalit

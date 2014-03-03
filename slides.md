@@ -3,7 +3,7 @@ rOpenGov
 css: slides.css
 transition: fade
 transition-speed: fast
-R ekosysteemi avoimelle hallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle
+*R ekosysteemi avoimelle julkishallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle*
 
 [TCWR](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/tcwr/Sivut/home.aspx)-seminaari </br>
 7.3.2014 Turussa
