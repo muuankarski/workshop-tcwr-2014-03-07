@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Markus Kainu" />
+  <title>rOpenGov - R ekosysteemi avoimelle hallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style>
+  
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(fonts/Lato.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(fonts/LatoBold.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Lato Black'), local('Lato-Black'), url(fonts/LatoBlack.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Lato Italic'), local('Lato-Italic'), url(fonts/LatoItalic.woff) format('woff');
+  }
+  
+  
+  -something { /* Just to escape the effect of html tag above in pandoc*/
+  
+  }
+  
+  .title /* Pandoc title header (h1.title) */
+      {
+      text-align: center;
+  	border-width:0px;
+  	font-size: 1.5em;
+  	margin: 0 0 5px 0;
+  	word-spacing: .1em;
+  	border-bottom: 0px;
+  	text-transform:none;
+      }
+  
+  .author /* Pandoc author(s) header (h2.author) */
+      {
+      text-align: center;
+      font-size: 1.1em;
+      line-height: 1.2em;
+      border-bottom: 0px;
+      }
+  
+  .date /* Pandoc date header (h3.date) */
+      {
+  	font-family:  Lato, Arial;
+  	text-align: center;
+  	font-size: 1.1em;
+  	line-height: 1.2em;
+      }
+  
+  
+  body {
+      margin-left: 240px;
+      max-width:750px; 
+      border: 0px;
+      font-family: Lato, Helvetica, sans-serif;
+  }
+  
+  
+  #toc {
+      font-size:0.9em;
+      height: 100%;
+      position: fixed; 
+      width: 220px;
+      left: 5px;
+      padding-top: 20px;
+      color: #003333;
+      border-right: 1px dashed #C1C1C1;
+  }
+  
+  #toc_header {
+      font-size: 1em;
+      font-weight: bold;    
+      border-bottom: 1px dashed #C1C1C1;
+      color: black;
+  }
+  
+  
+  
+  #TOC li {
+      padding: 2px 4px;
+      margin-left: 2px;
+  }
+  
+  
+  #TOC a {
+      color: #003333;
+      display: block;
+  }
+  
+  
+  #TOC {
+      font-size:0.9em;
+      height: 100%;
+      position: fixed; 
+      width: 220px;
+      left: 5px;
+      padding-top: 20px;
+      color: #003333;
+      border-right: 1px dashed #C1C1C1;
+  }
+  
+  #TOC_HEADER {
+      font-size: 1em;
+      font-weight: bold;    
+      border-bottom: 1px dashed #C1C1C1;
+      color: black;
+  }
+  
+  
+  
+  #TOC li {
+      padding: 2px 4px;
+      margin-left: 2px;
+  }
+  
+  
+  #TOC a {
+      color: #003333;
+      display: block;
+  }
+  
+  
+  blockquote {
+  	padding-left: .5em; 
+      border-left: 2px solid #C1C1C1;
+  	font-style: italic;
+  }
+  
+  
+  pre {	
+     margin-top: 0;
+     max-width: 95%;
+     border: 1px dashed #ccc;
+     white-space: pre-wrap;
+     font-size:1.0em;
+      background: #FFFFFF;
+  }
+  
+  pre code {
+     display: block; 
+     padding: 0.2em;
+     font-size:1.0em;
+  }
+  
+  code.r, code.cpp {
+     background-color: #ECEEF0;
+  }
+  
+  
+  
+  ul {
+  	font-size: 100% !important;
+  	font-family: Lato, Helvetica, sans-serif;
+  }
+  li {
+  	font-family: Lato, Helvetica, sans-serif;
+   	font-size: 1em;
+   	line-height: 1.1em;
+  }
+  
+  
+  p {
+  	font-family: Lato, Helvetica, sans-serif;
+  	padding-top: 2px;
+  	padding-bottom: 2px;
+  	font-size: 1em;
+  	line-height: 1.2em;
+  }
+  ol {
+  	list-style: decimal outside;
+  	list-style-type: decimal;
+  	float: none;
+  	margin: .5em 0 .5em 30px;
+  	padding: 0;
+  }
+  ul {
+  	margin: .2em 0 .2em 10px;
+  	padding: 0;
+  }
+  UL li, ol li {
+  	line-height: 1.1em;
+  	padding: 2px;
+  }
+  a:link {
+  	color: #657b83;
+     /* text-decoration: none; */
+  }
+  a:hover {
+  	color: #657b83;
+  }
+  a:visited {
+  	color: #657b83;
+  }
+  a:focus {
+  	color: #657b83;
+  }
+  a:active {
+  	color: #657b83;
+  }
+  
+  h1 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.3em;
+  	padding: 2px;
+  	line-height: 1.3em;
+      font-weight: 400;
+  	/*letter-spacing: 0.06em;
+  	word-spacing: .1em;*/
+      border-bottom: 0.5px solid #657b83;
+  	text-transform:none;
+      color: #657b83;
+  }
+  h2 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+      font-weight: 300;
+  	letter-spacing: 0.05em;
+  	word-spacing: .1em;
+  	border-bottom: 0.5px dashed #657b83;
+  /*	text-transform:capitalize;*/
+      color: #657b83;
+  
+  }
+  h3 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+      font-weight: 300;
+  	letter-spacing: 0.05em;
+  	word-spacing: .1em;
+      color: #657b83;
+  
+  }
+  h4 {
+  	font-family: Lato;
+  	font-size: 1.0em;
+  	padding: 2px;
+  	line-height: 1.0em;
+  	color: #555;
+  	font-weight: italic;
+      color: #657b83;
+  }
+  h5 {
+  	font-family: Avant Garde;
+  	font-size: 1.05em;
+  	padding: 2px;
+  	line-height: 1.15em;
+  	color: #555;
+  	font-weight: normal;
+      color: #657b83;
+  }
+  h6 {
+  	font-family: Lato;
+  	font-size: 1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+  	color: #555;
+  	font-weight: normal;
+      color: #657b83;
+  }
+  p.caption, table caption, caption{
+      margin-top:0em;
+      padding:2px;
+      font-weight: 600;
+      font-size:1.0em;
+      text-align:left;
+      color: #657b83;
+  }
+  
+  /* table styles */
+  table {
+  	border-collapse: collapse;
+  	border-spacing: 0;
+      line-height: 1.4em;
+  	font-size: 0.9em;
+  	/*font-family: monospace;*/
+  
+  }
+  .views-table, table {
+  	margin-left: 2px;
+  	margin-bottom: 10px;
+  	/*width: 1300px;*/
+  }
+  tr {
+  	line-height: 1.2em;
+  	border-bottom: #9e9e9e thin solid;
+  }
+  tr:last-child {
+  	line-height: 1.2em;
+  }
+  th {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  	text-align: left;
+  	border-bottom: #9e9e9e thin solid;
+  }
+  th:last-child {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  	text-align: left;
+  }
+  th:first-child {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border: #9e9e9e thin solid; */
+  }
+  tbody tr {
+  	line-height: 1.2em;
+  /*	border-left: #9e9e9e thin solid; */
+  }
+  tbody tr:nth-child(odd) {
+  	line-height: 1.2em;
+  	background-color: #F3F5F5;
+  }
+  td {
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  }
+  td:last-child {
+  	padding: 0 5px 0 5px;
+  }
+  DL {
+  	margin: .3em 0 .3em 0;
+  }
+  DT {
+  	margin: .3em 0 .3em 0;
+  }
+  DD {
+  	line-height: 1.5em;
+  	list-style: none;
+  	margin: .7em 0 .7em 2em;
+  }
+  td.active {
+  	background-color: transparent!important;
+  }
+  tr:last-child {
+  	border-bottom: #9e9e9e thin solid;
+  }
+  tr:first-child {
+  	border-top: #9e9e9e thin solid;
+  }
+  th:last-child {
+  /*	border-left: #9e9e9e thin solid; */
+  }
+  th:last-child {
+  	/*border-right: #9e9e9e thin solid;*/
+  }
+  </style>
+  
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="header">
+<h1 class="title">rOpenGov - R ekosysteemi avoimelle hallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle</h1>
+<h2 class="author">Markus Kainu</h2>
+<h3 class="date">Esitys TCWR-seminaarissa 7.3.2014 Turussa</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#mikä-ropengov">Mikä rOpenGov?</a><ul>
+<li><a href="#yhteisö">Yhteisö</a></li>
+<li><a href="#tavoiteet">Tavoiteet</a></li>
+<li><a href="#kielipolitiikka">Kielipolitiikka</a></li>
+</ul></li>
+<li><a href="#materiaalit">Materiaalit</a></li>
+</ul>
+</div>
+<h1 id="mikä-ropengov">Mikä rOpenGov?</h1>
+<p><a href="http://ropengov.github.io">ROpenGov</a> on yhteisövetoinen ekosysteemi avoimen hallinnollisen datan ja laskennallisen yhteiskuntatutkimuksen R-paketeille.</p>
+<p>rOpenGov:iin on jo liittynyt useita riippumattomia <a href="http://ropengov.github.io/projects/">projekteja</a>, joissa kehitetään työkaluja R-kielelle erilaisten <em>laskennallisen yhteiskuntatutkimuksen</em> näkökulmasta kiinnostavien avointen datavirtojen hyödyntämiseen. rOpenGov perustettiin 2013 ja sen toimintaa ohjaa ns. <em>ydintiimi</em>, joka parhaillaan laatii projektin infrastruktuuria ja samalla kannustaa uusiin <a href="http://ropengov.github.io/contribute/">kontrobuutioihin</a>.</p>
+<h2 id="yhteisö">Yhteisö</h2>
+<h2 id="tavoiteet">Tavoiteet</h2>
+<h2 id="kielipolitiikka">Kielipolitiikka</h2>
+<p>…</p>
+<!--
+
+Yhteisö riippumaton pakkauksen kehittäjät ympäri avoinna goverment data -analytiikka on nyt syntymässä rOpenGov . Itsenäisiä projekteja omistettu avata tietovirrat liittyvät laskennallisten tieteiden on jo liittynyt , tarjoamalla oma T välineitä käyttää ja analysoida näitä tietolähteitä. ROpenGov projekti aloitettiin virallisesti vuonna 2013 ja valvooydintiimi . Olemme nyt perustamassahanketta ja sen infrastruktuuri , ja kannustaa aktiivisesti uusia maksuja .
+
+Nopeasti kehittymässä valtiollisten ja muut avoimet tietovirrat tarjota uusia mahdollisuuksia yhteiskuntatieteiden , data journalismi ja kansalaisten osallistumista maailmalla taas laskennallisia työkaluja hyödyntää näitä resursseja puuttuvat . Yhteisön johtamaan ohjelmistojen ekosysteemin tarjoaaskaalautuvan ratkaisun jamahdollista mullistaaalan , hyödyntääsaatuja kokemuksia samanlaisia aloitteita muilla aloilla, kuten Bioconductor ja rOpenSci .
+
+Tämä sateenvarjo keskittyvä sivusto avoimen hallinnon tiedot R välineet antavat lisänäkyvyyttäosallistuvat hankkeisiin , automaattisia työkaluja ,mahdollisuuden houkutella vastaajat , jafoorumikehittäjäyhteisö .
+yhteisö
+Tämäyhteisön hanke . Useat riippumattomat paketin kirjoittajat ovat osallistuneet hankkeisiin , jotka helpottavat ohjelmallinen tietolähteisiin liittyvät laskennallisten yhteiskuntatieteet. Nämä paketit ovat aktiivisesti yllä niiden kehittäjät . Kehotamme uusia maksuja . Jos olet työskennellyt liittyviä hankkeita , älä epäröi ottaa yhteyttä !
+
+Käyttäjäyhteisön sisältää akateemisia tutkijoita , opiskelijoita, tietojen toimittajia , kansalainen tutkijoiden ja muiden asianosaisten kanssa.
+
+Ydintiimi palveleekehittäjä ja käyttäjäyhteisö ylläpitämälläinfrastruktuurin uudelleen uusiin pakkauksiin , ja ehdottaa suositeltavia suuntaviivoja . Ydin tiimin jäsenet ovat tausta laskennallisen tieteen : Leo Lahti ( Univ. Helsinki , Suomi ja Wageningenin yliopisto , Alankomaat ) , Juuso Parkkinen ( Aalto yliopisto , Suomi ) ja Joona Lehtomäki ( Helsingin yliopisto , Suomi) .
+
+Yleinen tuki koskienkehittämisen, ylläpidon ja käytön yksittäisiä paketteja , ota yhteyttäyhteisöön .
+tavoitteet
+rOpenGov onavoimen lähdekoodin , open ohjelmistojen kehittäminen hanke antaa työkalujaanalysointia ja ymmärtämistä tietojen kokoamista laskennallisten tieteiden innoittamana Bioconductor ,niihin liittyvät ja villisti onnistunut R ekosysteemin projekti biotieteisiin . ROpenGov hankkeen tavoitteena on edistääseuraavia näkökohtia sen toimintaan : Tilasto-ja graafiset menetelmätrOpenGov hanke tarjoaa laskennallisia työkaluja omistettutietojen analysointi kokoamista yhteiskuntatieteiden ja niihin liittyvillä aloilla , ja täydentää sitenyleiseen T ekosysteemin laskennallisia tieteitä .
+
+DokumentointirOpenGov Hanke tuottaa korkealaatuista ohjeistusta liittyvätanalyysi tietolähteiden merkitystä yhteiskuntatieteissä. Kukin rOpenGov pakkaus sisältää yhden tai useampia vinjettien . Nämä tarjoavattehtävä suuntautunut , avoin ja toistettavissa kuvauspaketin toiminnallisuutta . Tärkeimmät vinjettien muunnetaan automaattisesti online-ohjaus julkaistaanrOpenGov sivustolla .
+
+Skaalautuvuus antaayhteinen ohjelmistoalusta, joka mahdollistaanopean kehityksen laajennettavissa , skaalautuva ja yhteentoimivia ohjelmistoja . Avoin kehitysmalli helpottaa ohjelmistojen parannuksia bug vahvistamisesta ja ohjelmistojen laajennus , ja tarjoaatyöpöytään työkaluja, joiden avulla tutkijat voivat tutkia ja laajentaaanalysoimiseksi käytetyt menetelmät liittyvät tiedot yhteiskuntatieteet.
+
+Avoimen lähdekoodinrOpenGov projekti onsitoutunut turvaamaan täysin avoimen lähdekoodin kuria , jakelun kautta Github ,julkinen versio ohjauspalvelimeen . Kaikki kannanotot ovat julkaistuavoimen lähdekoodin lisenssillä tarjoamaan täyden pääsyn algoritmeja ja niiden täytäntöönpanon ja varmistaa, ettäkansainvälisen tiedeyhteisön on omistajantarvitsemia ohjelmistotyökaluja tekemään tutkimusta .
+
+Toistettavissa tutkimus ohjelmistot ovat saatavilla kokoamiseen ja käsittelyyn tietolähteitä, kuten parlamentaarista tietoja , taloudellisia ja sosiaalisia indikaattoreita , ja muista lähteistä . Automaattisesti luotu online-oppitunnit tarjoavat täysin avointa dokumentointia täysin algoritmeihin yksityiskohtia . Tämä antaa esimerkkejä hyvän tieteellisen laskennan , ja etukäteen tieteellisiä menetelmiä , käytännön ja ymmärtämisen tarjoamalla laadukkaita työkaluja toistettavissa tutkimusta .
+
+Avoin kehitys Käyttäjät kannustetaan kehittäjäksi , joko osallistumalla rOpenGov yhteensopiva paketteja tai asiakirjoja . Lisäksi rOpenGov tarjoaa foorumin joka yhdistää eri ryhmien yhteiset tavoitteet edistää yhteistyötä ohjelmistoja , usein tasolla jaetun kehitystä . Tämä voi myös auttaa kouluttaa tutkijoita laskennallisia ja tilastollisia menetelmiäanalysointiin Yhteiskuntatieteellinen tietoarkisto . LisäksirOpenGov hanke tarjoaa apuohjelmia paketti kehittäjille , mukaan lukien TravisCI skriptit automatisoitu rakentaa raportteja , automaattisesti luotu online- opetusohjelmiapaketteja , jaetusta lavarOpenGov verkkosivuilla, ja näkyvyyttä ja tunnustusta yksittäisiä paketteja . Yhteisö edistää keskinäistä tukea ja palautetta .
+kielipolitiikka
+ROpenGov Hanke perustuuR tilastollinen ohjelmointikieli . Useimmat rOpenGov osat jakautuvat R paketteja pääsy esikäsittelytoiminnot , analysoida ja raportoida tietoja ja tieteellisiä tutkimustuloksia . Saattaa olla myös hyödyllisyys ja metatiedot paketteja . Yleensä paketin julkaisu versiot jaellaan CRAN , jakehitys versiot kautta rOpenGov Github organisaatio. Etuja R ovat:
+
+    Aktiivinen kehittäjäyhteisö .
+    Laaja kokemuksia Vastaavien yhteisön hankkeita muilla aloilla .
+    Vakiintunut järjestelmä pakkaamiseen yhdessä ohjelmiston automaattisen dokumenttien luomisen .
+    Pääsy online- tietolähteisiin .
+    Tuki rikas tilastollisia simulointi ja mallinnus toimintaa .
+    State -of - the-art visualisointiominaisuudet .
+    Korkean tason tulkita kielen helposti prototyyppi uusia laskennallisia menetelmiä .
+    Olio- pohjalta voidaan käsitellämonimuotoisuus ja monimutkaisuus ongelmia yhteiskuntatieteissä .
+
+Olemme valittu keskittyä R Vahvan ekosysteemin ja käyttäjäyhteisö . Olemme aktiivisesti seuraamme kehitystä muilla kielillä , kuten Python ja Julia . Kielipolitiikka voidaan laajentaa tulevaisuudessa .
+
+-->
+
+
+<h1 id="materiaalit">Materiaalit</h1>
+<ul>
+<li><a href="slides.html">Esityksen slaidit</a> - ei toimi vanhoilla Internet Explorer -selaimilla! Käytä Firefox, Chrome, Safari tms.</li>
+<li><a href="http://digihist.se/5-metoder-inom-digital-historia/fordjupning-open-research-methods-in-computational-social-sciences-and-humanities-introducing-r/">Fördjupning: Open research methods in computational social sciences and humanities: introducing R by Markus Kainu</a> - Kevyt johdatus avoimiin tutkimusmenetelmiin ja r-kieleen</li>
+</ul>
+</body>
+</html>
