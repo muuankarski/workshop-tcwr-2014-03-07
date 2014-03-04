@@ -1,15 +1,14 @@
-rOpenGov
+rOpenGov 
 ==============
 css: slides.css
 transition: fade
 transition-speed: fast
-*R ekosysteemi avoimelle julkishallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle*
+*R-ekosysteemi avoimelle julkishallinnon datalle ja laskennalliselle yhteiskuntatutkimukselle*
 
 [TCWR](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/tcwr/Sivut/home.aspx)-seminaari </br>
 7.3.2014 Turussa
 
-[Markus Kainu](http://markuskainu.fi) & [rOpenGov-core team]()
-
+[Markus Kainu](http://markuskainu.fi)</br>
 *tohtorikoulutettava* </br>
 [Sosiaalitieteden laitos, Turun yliopisto](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/Sivut/home.aspx) </br>
 [Aleksanteri-instituutti, Helsingin yliopisto](http://helsinki.fi/aleksanteri) </br>
@@ -37,12 +36,18 @@ Esityksen rakenne
 4. Tehdään sillä jotain!
 
 
+
 bigtitle
 ========================================================
 title: false
 
 <h1>Mikä on rOpenGov?</h1>
 
+<center>
+
+![](images/ropengov.png)
+
+</center>
 
 =======================================================
 title:false
@@ -59,23 +64,219 @@ rOpenGov
 
 
 
+rOpenGov
+====================================================
+
+Open government data is opening up novel opportunities for research
+====================================================
+
+Ongoing paradigm shift:
+====================================================
+
+closed data & custom tools  ->  open data & flexible tools
+
+Computational workflows are having an increasingly central role in social and political sciences
+====================================================
+
+-> Borrow approaches from other fields 
+
+- (bioinformatics, climatology, economics, ecology, physics) 
+- similar data formats, related analytical challenges !
 
 
-What
-==========================
+Two objectives
+===============================
 
->The rOpenGov is a community-driven ecosystem of R packages for open government data and computational social sciences. 
-
->A community of independent package developers around open goverment data analytics is now emerging at rOpenGov. Independent projects dedicated to open data streams relevant to computational social sciences have already joined in, providing dedicated R tools to access and analyze these information sources. We are now setting up the project and its infrastructure, and actively encouraging new contributions. 
-
-
-Why
-=========================
-
->The rapidly emerging governmental and other open data streams provide novel opportunities for social sciences, data journalism, and citizen participation across the globe while computational tools to utilize these resources are lacking. A community-driven software ecosystem provides a scalable solution and a potential to revolutionize the field, taking advantage of the lessons learned in similar initiatives in other fields such as Bioconductor and rOpenSci. 
+1. Pääsy dataan
+-------------------------------
+- programmatic access to data resources
+- transparent & ready-made preprocessing
+- data catalogues
+- harmonized data structures? 
 
 
-==========================
+2. Datan analysoiminen
+-------------------------------
+- customized analysis algorithms for social science data 
+- standardization of analytical approaches
 
-![](http://upload.wikimedia.org/wikipedia/commons/c/cc/Open_Data_stickers.jpg)
 
+New tools, new opportunities 
+==================================
+
+-> promoting collaboration between computational & social scientist through simplified access to data and analysis tools
+
+-----
+
+1. Programmatic access to (already) thousands of   governmental data resources across the globe
+2. Online documentation
+3. Analytical tools to monitor decision-making, demographics, 	economy, environment, historical data, etc.
+4. Transparent & reproducible social science research
+5. Wider implications: academic research, citizen science, 	data journalism, education, ...
+
+
+
+Progress
+======================
+
+| year  | happened |
+| ----  | ------   |
+| 2010  | Project starts | 
+| 2011  | Data journalism workshops |
+|       | Apps4Finland Data Opening Award |
+| 2012  | SHARE-konferenssi (Belgrade) |
+|  | Urban research seminar (Helsinki) |
+|  | Collaboration with major Finnish media organizations (election data hackathon) |
+|  | Sitra 14,000e funding for election data project | 
+|  | Open Legislative Data-conference (Paris) |
+|  | Open Knowledge Festival (Helsinki) |
+|  | Apps4Finland Data Opening Award (Data elections & Datawiki) |
+| 2013  | Open Knowledge Foundation; Open Science work group |
+|  | CRAN |
+|  | Russia, US, Poland, Austria, OpenStreetMap packages join rOpenGov |
+|  | Open Knowledge Roadshow (Turku, Finland) |
+|  | Apps4Finland award (collaboration with Demos Helsinki think tank) |
+|  | NIPS Machine Learning Open Source Software workshop (Lake Tahoe, US) |
+| 2014  | Political scientists rush in the project |
+|   | Active development of guidelines and technical documentation |
+
+
+From Data to Knowledge
+=======================
+
+>The scale and scope of data-driven social science are expanding rapidly and revolutionizing the field; data access and integration at a new level
+
+
+
+
+
+
+Miksi R
+=======================
+
+
+bigtitle
+========================================================
+title: false
+
+<h1>Esimerkkejä</h1>
+
+SmarterPoland: Eurostatin datat kartalla
+=======================================================
+
+
+```r
+library(SmarterPoland)
+df <- getEurostatRaw(kod = "ilc_mddd21")
+names(df) <- c("xx", 2011:2003)
+
+df$unit <- lapply(strsplit(as.character(df$xx), ","), "[", 1)
+df$geo.time <- lapply(strsplit(as.character(df$xx), ","), "[", 2)
+
+df.l <- melt(data = df, id.vars = "geo.time", measure.vars = c("2003", "2004", 
+    "2005", "2006", "2007", "2008", "2009", "2010", "2011"))
+
+df.l$geo.time <- unlist(df.l$geo.time)
+head(df.l)
+```
+
+```
+  geo.time variable value
+1       AT     2003     3
+2     AT11     2003    NA
+3     AT12     2003    NA
+4     AT13     2003    NA
+5     AT21     2003    NA
+6     AT22     2003    NA
+```
+
+
+
+Spatiaalinen data GISCO:sta
+=========================================================
+
+
+```r
+download.file("http://epp.eurostat.ec.europa.eu/cache/GISCO/geodatafiles/NUTS_2010_60M_SH.zip", 
+    destfile = "NUTS_2010_60M_SH.zip")
+# unzip to SpatialPolygonsDataFrame
+unzip("NUTS_2010_60M_SH.zip")
+library(rgdal)
+map <- readOGR(dsn = "./NUTS_2010_60M_SH/data", layer = "NUTS_RG_60M_2010")
+# as the data is at NUTS2-level, we subset the spatialpolygondataframe
+map_nuts2 <- subset(map, STAT_LEVL_ <= 2)
+# Spatial dataframe has 467 rows and attribute data 223.  We need to make
+# attribute data to have similar number of rows
+NUTS_ID <- as.character(map_nuts2$NUTS_ID)
+VarX <- rep("empty", 467)
+dat <- data.frame(NUTS_ID, VarX)
+# then we shall merge this with Eurostat data.frame
+dat2 <- merge(dat, df, by.x = "NUTS_ID", by.y = "geo.time", all.x = TRUE)
+## merge this manipulated attribute data with the spatialpolygondataframe
+## there are still duplicates in the data, remove them
+dat2$dup <- duplicated(dat2$NUTS_ID)
+dat3 <- subset(dat2, dup == FALSE)
+## rownames
+row.names(dat3) <- dat3$NUTS_ID
+row.names(map_nuts2) <- as.character(map_nuts2$NUTS_ID)
+## order data
+dat3 <- dat3[order(row.names(dat3)), ]
+map_nuts2 <- map_nuts2[order(row.names(map_nuts2)), ]
+## join
+library(maptools)
+shape <- spCbind(map_nuts2, dat3)
+```
+
+
+
+==============================================================
+
+
+```r
+## fortify spatialpolygondataframe into data.frame
+library(ggplot2)
+library(rgeos)
+shape$id <- rownames(shape@data)
+map.points <- fortify(shape, region = "id")
+map.df <- merge(map.points, shape, by = "id")
+# As we want to plot map faceted by years from 2003 to 2011 we have to
+# melt it into long format
+library(reshape2)
+map.df.l <- melt(data = map.df, id.vars = c("id", "long", "lat", "group"), measure.vars = c("X2003", 
+    "X2004", "X2005", "X2006", "X2007", "X2008", "X2009", "X2010", "X2011"))
+# year variable (variable) is class string and type X20xx.  Lets remove
+# the X and convert it to numerical
+library(stringr)
+map.df.l$variable <- str_replace_all(map.df.l$variable, "X", "")
+map.df.l$variable <- factor(map.df.l$variable)
+map.df.l$variable <- as.numeric(levels(map.df.l$variable))[map.df.l$variable]
+```
+
+
+
+```r
+library(ggplot2)
+# plot faceted by year
+ggplot(map.df.l, aes(long,lat,group=group)) +
+  geom_polygon(aes(fill = value)) +
+  geom_polygon(data = map.df.l, aes(long,lat), 
+               fill=NA, 
+               color = "white",
+               size=0.1) + # white borders
+  coord_map(project="orthographic", xlim=c(-22,34),
+              ylim=c(35,70)) + # projection
+  facet_wrap(~variable) +
+  theme_minimal()
+```
+
+
+
+=================================================================
+title:false
+
+![plot of chunk smarterpoland5](slides-figure/smarterpoland5.png) 
+
+
+
+
+==============================================================
