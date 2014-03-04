@@ -22,7 +22,7 @@ Materiaalit
 
 | linkki  | huom! |
 | --- | --- |
-| [slides.html]((slides.html)) | Esityksen diat .html-muodossa - (ei toimi vanhoilla Internet Explorer -selaimilla! Käytä Firefox, Chrome, Safari tms.) |
+| [slides.html](slides.html) | Esityksen diat .html-muodossa - (ei toimi vanhoilla Internet Explorer -selaimilla! Käytä Firefox, Chrome, Safari tms.) |
 | [Fördjupning: Open research methods in computational social sciences and humanities: introducing R](http://digihist.se/5-metoder-inom-digital-historia/fordjupning-open-research-methods-in-computational-social-sciences-and-humanities-introducing-r/) | Kirjottamani "kevyt johdatus avoimiin tutkimusmenetelmiin ja R-kieleen" |
 
 
@@ -55,7 +55,7 @@ rOpenGov on yhteisöllinen projekti, joka rakentuu **ydintiimistä**, **pakettie
 - [Manuel Eugster](http://users.ics.aalto.fi/meugster/) - [Helsinki Institute for Information Technology: Statistical Machine Learning and Bioinformatics Group](http://research.ics.aalto.fi/mi/)
 - [Christopher Gandrud](http://christophergandrud.blogspot.fi/) - [Hertie School of Governance](http://www.hertie-school.org/)
 - [Love Hansson](https://github.com/LCHansson) - [Swedish Pensions Agency](http://www.pensionsmyndigheten.se/)
-- [Markus Kainu](http://markuskainu.fi/) - [Sosiaalitieteden laitos, Turun yliopisto](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/Sivut/home.aspx)
+- [Markus Kainu](http://markuskainu.fi/) - [Turun yliopisto](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/Sivut/home.aspx)
 - [Stefan Kasberger](https://github.com/skasberger) - [openscienceASAP](http://openscienceasap.org/)
 - [Thomas J. Leeper](http://thomasleeper.com/) - [Aarhus University](http://ps.au.dk/en/)
 - [Måns Magnusson](https://github.com/MansMeg) - [Linköpings Universitet](http://www.liu.se/?l=en)
@@ -73,7 +73,7 @@ Projektin tavoitteet
 
 **Avoin lähdekoodi**. rOpenGov on ja tulee aina olemaan 100 % avoimen lähdekoodin projekti. Projektissa käytetään laajasti [git](http://git-scm.com/):iä ja [Github](https://github.com/):ia versionhallintaan and yhteistyöhön. Kaikki paketit julkaistaan avoimen lähdekoodin lisensseillä, jotta käyttäjillä ja kehittäjillä olisi pääsy algoritmeihin sekä niiden sovelluksiin, ja että kansainvälinen tiedeyhteisö voi omistaa tutkimuksen tekemiseen vaadittavat ohjelmistot.
 
-**Toistettava tutkimus**. Projektissa pyritään edistämään tutkimuksen toistettavuutta tarjoamalla työkaluja ja työvirtoja, jotka ovat helposti sovitettavissa erilaisiin tutkimuskysymyksiin erilaisissa tutkimusasetelmissa. Yhdenmukaisen käyttöliitymän [äänestysdataan](https://github.com/rOpenGov/finpar) sekä [taloudellisiin ja sosiaalisiin indikaattoreihin](https://github.com/muuankarski/rqog) on yksi esimerkki tästä. Tämän kaltainen rakenne tekee analyyseistä suoraviivaisempia ja ymmärrettävämpi, sillä data ei kerätä ja käsitellä erikseen jokaisella kertaa. Samoin läpinäkyvä dokumentaatio algortimien yksityiskohtineen luo puitteet hyvälle tieteelliselle laskennalle ja tekee edistynyttä tieteellistä metodologiaa, työtapoja ja ymmärrystä tutuksi laajemmalle yleisölle.
+**Toistettava tutkimus**. Projektissa pyritään edistämään tutkimuksen toistettavuutta tarjoamalla työkaluja ja työvirtoja, jotka ovat helposti sovitettavissa erilaisiin tutkimuskysymyksiin erilaisissa tutkimusasetelmissa. Yhdenmukaisen käyttöliitymän [äänestysdataan](https://github.com/rOpenGov/finpar) sekä [taloudellisiin ja sosiaalisiin indikaattoreihin](https://github.com/muuankarski/rqog) on yksi esimerkki tästä. Tämän kaltainen rakenne tekee analyyseistä suoraviivaisempia ja ymmärrettävämpi, kun dataa ei kerätä ja käsitellä erikseen jokaisella kertaa. Samoin läpinäkyvä dokumentaatio algoritmien yksityiskohtineen luo puitteet hyvälle tieteelliselle laskennalle ja tekee edistynyttä tieteellistä metodologiaa, työtapoja ja ymmärrystä tutuksi laajemmalle yleisölle.
 
 **Avoin kehitystyö**. Projektissa käyttäjiä rohkaistaan astumaan kehittäjien rooliin, joko kehittämällä rOpenGov-yhteensopivia paketteja tai pakettien dokumentaatiota. Lisäksi rOpenGov tarjoaa foorumin ryhmien ja projektien yhteistyölle, joilla on yhteisiä tavoitteita ohjelmistojen kehityksessä. Tällainen yhteistyö voi myös auttaa tutkijoita oppimaan lisää laskennallisten ja tilastollisten menetelmien yhteiskuntatieteellisista sovelluksia. Tämän ohella projekti tarjoaa pakettien kehittäjille lisähyötyjä, kuten [TravisCI](https://travis-ci.org/) skriptit automaattisiin rakentumisraportteihin, automaattisesti generoituvat online-ohjeet paketeille, yhteisen pakettien jakamisen projektin verkkosivulla sekä näkyvyyttä ja tunnustettavuutta yksittäisille paketeille. Avoimen kehitystyön malli luo puitteet ohjelmistojen kehittämiselle virheiden korjaamisen ja laajennoksien rakentamisen kautta ja tarjoaa työkaluvalikoiman, joka mahdollistaa tutkijoiden perehtyä ja laajentaa metodeita. 
 
@@ -94,6 +94,16 @@ Projektin kieleksi on valittu R-kieli muuan muassa siksi että se tarjoaa:
 5. tämänhetkistä huipputasoa edustavat graafiset graafiset ominaisuudet.
 
 R:n puolesta puhuu lisäksi kielen ympärillä vaikuttava vahva ekosysteemi ja käyttäjäyhteisö. Lisäksi R on projektin tekijöille tutuin kieli ja sillä on vahvat näytöt samankaltaisista yhteisöllisistä projekteista muilta laskennallisten tieteiden aloilta. Samalla projektissa pidetään tarkkaa silmällä muiden ohjelmointikielien ja niiden ekosysteemien kehitystä, kuten [Python](http://www.python.org/)- ja [Julia](http://julialang.org/)-kielten, ja kielipolitiikkaa voidaan tulevaisuudessa laventaa.
+
+
+Liity yhteisöön!
+-----------------------------------------------
+
+- [Google+](https://plus.google.com/u/0/communities/108289259916380218460)
+- IRC (ropengov@Freenode)
+- [rOpenGov blog](http://ropengov.github.io/)
+- [Twitter](https://twitter.com/ropengov)
+- Liity [ropengov-forum@googlegroups.com](https://groups.google.com/forum/#!forum/ropengov-forum) sähköpostilistalle
 
 
 Linkkejä

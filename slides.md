@@ -30,24 +30,16 @@ transition-speed: fast
 Esityksen rakenne
 ========================================================
 
-1. Mikä on rOpenGov?
-2. Miksi se on hyvä juttu?
-3. Mitä sillä voi tehdä?
-4. Tehdään sillä jotain!
+1. Mikä rOpenGov?
+2. Miksi rOpenGov?
+3. Mitä rOpenGov:n avulla voi tehdä?
 
 
 
-bigtitle
 ========================================================
 title: false
 
-<h1>Mikä on rOpenGov?</h1>
-
-<center>
-
-![](images/ropengov.png)
-
-</center>
+<h1>1. Mikä rOpenGov?</h1>
 
 =======================================================
 title:false
@@ -63,50 +55,124 @@ rOpenGov
 >The rapidly emerging governmental and other open data streams provide novel opportunities for social sciences, data journalism, and citizen participation across the globe while computational tools to utilize these resources are lacking. **A community-driven software ecosystem provides a scalable solution and a potential to revolutionize the field, taking advantage of the lessons learned in similar initiatives in other fields such as [Bioconductor](http://www.bioconductor.org/) and [rOpenSci](http://ropensci.org/).**
 
 
+Mikä rOpenGov?
+==============================================
 
-rOpenGov
+[rOpenGov](http://ropengov.github.io) on *yhteisövetoinen ekosysteemi avoimen julkishallinnollisen datan ja laskennallisen yhteiskuntatutkimuksen R-paketeille*. 
+
+Suomessa ja maailmalla nopeasti lisääntyvät hallinnollisen ja muun avoimen datan virrat ovat erityisen kiinnostavia yhteiskuntatieteiden, datajournaslimin ja kansalaisten osallistumisen näkökulmasta, mutta laskennalliset työkalut näiden datavirtojen hyödyntämiseen vielä ovat puutteellisia. 
+
+rOpenGov-projektissa kehitetään yhteisövetoista skaalautuvaa ohjelmistoekosysteemiä tavoitteena valjastaa avoimen laskennallisen analyysin ja uusien datalähteiden potentiaali yhteiskuntatieteiden käyttöön. 
+
+Projekti ottaa oppia biotieteiden menestyksekkäiden ekosysteemiprojektien kuten [Bioconductor](http://www.bioconductor.org/):in tai [rOpenSci](http://ropensci.org/):n kokemuksista.
+
+
+rOpenGov-yhteisö
+==============================================
+
+rOpenGov on yhteisöllinen projekti, joka rakentuu **ydintiimistä**, **pakettien kehittäjistä** ja **pakettien käyttäjistä**.  
+
+**Käyttäjäyhteisö** koostuu akateemisista tutkijoista, opiskelijoista, datajournalisteista, kansalaistieteilijöistä ja muista kiinnostuneista.
+
+**Ydintiimin** palvelee kehittäjiä ja käyttäjiä ylläpitämällä infrastruktuuria, arvioimalla uusia paketteja ja laatimalla suosituksia pakettien toiminnalle. Ydintiimin jäsenillä on laskennallisten tieteiden koulutus:
+
+- [Leo Lahti](http://www.iki.fi/Leo.Lahti) (Univ. Helsinki, Finland and Wageningen Univ., Netherlands)
+- [Juuso Parkkinen](http://ouzor.github.io/) (Aalto Univ., Finland) 
+- [Joona Lehtomäki](https://github.com/jlehtoma) (University of Helsinki, Finland).
+
+==============================================
+
+**Pakettien kehittäjien** [projektit](http://ropengov.github.io/projects) helpottavat erilaisten lasennalliselle yhteiskuntatutkimukselle relevanttien datalähteiden ohjelmoinnillista hyödyntämistä. Mm. seuraavat eri tieteenalojen tutkijat ovat aktiivisesti mukana omien pakettiensa ja koko projektin kehitystyössä:
+
+- [Przemyslaw Biecek](http://www.biecek.pl/) - [University of Warsaw](http://www.icm.edu.pl/web/guest/home)
+- [François Briatte](http://f.briatte.org/) - [European School of Political and Social Sciences](http://espol-lille.eu/)
+- [Scott Chamberlain](http://scottchamberlain.info/) - [Simon Fraser University in Vancouver](http://www.biology.sfu.ca/)
+- [Manuel Eugster](http://users.ics.aalto.fi/meugster/) - [Helsinki Institute for Information Technology: Statistical Machine Learning and Bioinformatics Group](http://research.ics.aalto.fi/mi/)
+- [Christopher Gandrud](http://christophergandrud.blogspot.fi/) - [Hertie School of Governance](http://www.hertie-school.org/)
+- [Love Hansson](https://github.com/LCHansson) - [Swedish Pensions Agency](http://www.pensionsmyndigheten.se/)
+- [Markus Kainu](http://markuskainu.fi/) - [Sosiaalitieteden laitos, Turun yliopisto](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/Sivut/home.aspx)
+- [Stefan Kasberger](https://github.com/skasberger) - [openscienceASAP](http://openscienceasap.org/)
+- [Thomas J. Leeper](http://thomasleeper.com/) - [Aarhus University](http://ps.au.dk/en/)
+- [Måns Magnusson](https://github.com/MansMeg) - [Linköpings Universitet](http://www.liu.se/?l=en)
+
+
+
+Projektin tavoitteet 1
+==============================================
+
+**Tilastolliset ja graafiset menetelmät**. Projekti pyrkii tarjoamaan yhteiskuntatieteille relevantteja laskennallisia työkaluja R-kielen täydentämiseksi tältä osin. Erityisesti rOpenGov tarjoaa työkaluja uusien datalähteiden käyttöön.
+
+**Dokumentaatio**. Projektissa uskotaan että korkealaatuinen dokumentaatio ei ole vain hyvä kehittämistrategia vaan myös ehdoton edellytys sille että uudet työkalut otetaan käyttöön. Jokainen rOpenGov-paketti sisältää vähintää yhden *vignetin* (ohjedokumentti R-projektissa), jossa esitellään tehtäväkältöisesti, läpinäkyvästi ja toistettavasti kuvaus paketin toiminnallisuudesta ja mahdollisuuksista. Pakettien ensisijaiset vignetit käännetään automaattisesti online-ohjeiksi rOpenGov:n verkkosivuille.
+
+**Skaalautuvuus**. rOpenGov on jaettu ohjelmistoalusta joka mahdollistaa laajennettavien, skaalautuvien ja keskenään yhteensopivien ohjelmistojen ripeän kehittämisen. Yksittäinen tutkija ei kykene tuottamaan näin monipuolisia työkaluja kuin mitä on tarpellista uusien datalähteiden potentiaalin hyödyntämiseksi.
+
+Projektin tavoitteet 2
+==============================================
+
+**Avoin lähdekoodi**. rOpenGov on ja tulee aina olemaan 100 % avoimen lähdekoodin projekti. Projektissa käytetään laajasti [git](http://git-scm.com/):iä ja [Github](https://github.com/):ia versionhallintaan and yhteistyöhön. Kaikki paketit julkaistaan avoimen lähdekoodin lisensseillä, jotta käyttäjillä ja kehittäjillä olisi pääsy algoritmeihin sekä niiden sovelluksiin, ja että kansainvälinen tiedeyhteisö voi omistaa tutkimuksen tekemiseen vaadittavat ohjelmistot.
+
+**Toistettava tutkimus**. Projektissa pyritään edistämään tutkimuksen toistettavuutta tarjoamalla työkaluja ja työvirtoja, jotka ovat helposti sovitettavissa erilaisiin tutkimuskysymyksiin erilaisissa tutkimusasetelmissa. Yhdenmukaisen käyttöliitymän [äänestysdataan](https://github.com/rOpenGov/finpar) sekä [taloudellisiin ja sosiaalisiin indikaattoreihin](https://github.com/muuankarski/rqog) on yksi esimerkki tästä. Tämän kaltainen rakenne tekee analyyseistä suoraviivaisempia ja ymmärrettävämpi, kun dataa ei kerätä ja käsitellä erikseen jokaisella kertaa.
+
+**Avoin kehitystyö**. Projektissa käyttäjiä rohkaistaan astumaan kehittäjien rooliin, joko kehittämällä rOpenGov-yhteensopivia paketteja tai pakettien dokumentaatiota. Lisäksi rOpenGov tarjoaa foorumin ryhmien ja projektien yhteistyölle, joilla on yhteisiä tavoitteita ohjelmistojen kehityksessä. Tällainen yhteistyö voi myös auttaa tutkijoita oppimaan lisää laskennallisten ja tilastollisten menetelmien yhteiskuntatieteellisista sovelluksia. 
+
+
+Kielipolitiikka 1
+==============================================
+
+rOpenGov perustuu tilastolliseen R-ohjelmointikieleen. R on korkean tason tulkattava ohjelmointikieli, jolla on helppo testata uusia laskennallisia menetelmiä. Olioperusteinen rakenne mahdollistaa moninaisten ja kompleksisten yhteiskuntatieteellisten tutkimusongelmien mallintamisen ja ratkaisemisen.
+
+Valtaosa projektin komponenteista jaetaan R-paketteina. Näin käyttäjillä on mahdollisuus käsitellä, analysoida ja raportoida datoja ja tutkimuksen tuloksia. Projektiin ovat tervetulleita myös tukipalveluja ja metadataa tarjoavat paketit. Yleisperiaate on että pakettien julkaisuversiot jaetaan [CRAN](http://cran.r-project.org/)-verkoston kautta ja kehitysversiot [rOpenGov:n Github-organisaation](https://github.com/rOpenGov) kautta. 
+
+Kielipolitiikka 2
+==============================================
+
+Projektin kieleksi on valittu R-kieli muuan muassa siksi että se tarjoaa:
+
+1. vakiintuneen järjestelmän ohjelmistojen paketoimiselle,
+2. monipuoliset mahdollisuudet automatisoituun dokumenttien luomiseen, 
+3. verkossa olevan datan tehokkaaseen hyödyntämiseen sekä 
+4. tuen moninaisten tilastollisten simulointien ja mallintamisten tekemiselle sekä 
+5. tämänhetkistä huipputasoa edustavat graafiset graafiset ominaisuudet.
+
+R:n puolesta puhuu lisäksi kielen ympärillä vaikuttava vahva ekosysteemi ja käyttäjäyhteisö. Lisäksi R on projektin tekijöille tutuin kieli ja sillä on vahvat näytöt samankaltaisista yhteisöllisistä projekteista muilta laskennallisten tieteiden aloilta. Samalla projektissa pidetään tarkkaa silmällä muiden ohjelmointikielien ja niiden ekosysteemien kehitystä, kuten [Python](http://www.python.org/)- ja [Julia](http://julialang.org/)-kielten, ja kielipolitiikkaa voidaan tulevaisuudessa laventaa.
+
+
+========================================================
+title: false
+
+<h1>2. Miksi rOpenGov? </br> ihan vaiheessa!!!</h1>
+
+Leon diat
 ====================================================
 
-Open government data is opening up novel opportunities for research
-====================================================
-
-Ongoing paradigm shift:
-====================================================
-
-closed data & custom tools  ->  open data & flexible tools
+- Open government data is opening up novel opportunities for research
+- Ongoing paradigm shift:
+    - closed data & custom tools  ->  open data & flexible tools
 
 Computational workflows are having an increasingly central role in social and political sciences
-====================================================
-
--> Borrow approaches from other fields 
-
-- (bioinformatics, climatology, economics, ecology, physics) 
-- similar data formats, related analytical challenges !
-
+------------------------------------
+- Borrow approaches from other fields 
+    - (bioinformatics, climatology, economics, ecology, physics) 
+    - similar data formats, related analytical challenges !
 
 Two objectives
-===============================
+============================================
 
 1. Pääsy dataan
--------------------------------
-- programmatic access to data resources
-- transparent & ready-made preprocessing
-- data catalogues
-- harmonized data structures? 
-
+    - programmatic access to data resources
+    - transparent & ready-made preprocessing
+    - data catalogues
+    - harmonized data structures? 
 
 2. Datan analysoiminen
--------------------------------
-- customized analysis algorithms for social science data 
-- standardization of analytical approaches
+    - customized analysis algorithms for social science data 
+    - standardization of analytical approaches
 
 
 New tools, new opportunities 
-==================================
+============================================
 
--> promoting collaboration between computational & social scientist through simplified access to data and analysis tools
-
------
+- promoting collaboration between computational & social scientist through simplified access to data and analysis tools
 
 1. Programmatic access to (already) thousands of   governmental data resources across the globe
 2. Online documentation
@@ -117,7 +183,7 @@ New tools, new opportunities
 
 
 Progress
-======================
+============================================
 
 | year  | happened |
 | ----  | ------   |
@@ -147,19 +213,273 @@ From Data to Knowledge
 >The scale and scope of data-driven social science are expanding rapidly and revolutionizing the field; data access and integration at a new level
 
 
-
-
-
-
-Miksi R
-=======================
-
-
 bigtitle
 ========================================================
 title: false
 
-<h1>Esimerkkejä</h1>
+<h1>3. Mitä rOpenGov:n avulla voi tehdä? </br> ihan vaiheessa...!</h1>
+
+sorvi - tapaus Sotkanet
+==========================================================
+
+**Listaa saatavilla olevat SOTKAnetin indikaattorit**
+
+
+```r
+library(sorvi)  # http://louhos.github.com/sorvi
+sotkanet.indicators <- SotkanetIndicators(type = "table")
+head(sotkanet.indicators)
+```
+
+```
+  indicator
+1         4
+2         5
+3         6
+4         7
+5        74
+6       127
+                                                                           indicator.title.fi
+1  Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä
+2                   Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä
+3 Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1000 vastaavanikäistä
+4                                                                 0 - 6-vuotiaat, % väestöstä
+5                                                      Yksinhuoltajaperheet, % lapsiperheistä
+6                                                                               Väestö 31.12.
+  indicator.organization        indicator.organization.title.fi
+1                      2 Terveyden ja hyvinvoinnin laitos (THL)
+2                      2 Terveyden ja hyvinvoinnin laitos (THL)
+3                      2 Terveyden ja hyvinvoinnin laitos (THL)
+4                      3                          Tilastokeskus
+5                      3                          Tilastokeskus
+6                      3                          Tilastokeskus
+```
+
+
+**Listaa SOTKAnetin aluetiedot**
+
+
+```r
+sotkanet.regions <- SotkanetRegions(type = "table")
+head(sotkanet.regions)
+```
+
+```
+  region                 region.title.fi region.code     region.category
+1    833          Etelä-Suomen AVIn alue           1 ALUEHALLINTOVIRASTO
+2    834        Lounais-Suomen AVIn alue           2 ALUEHALLINTOVIRASTO
+3    835            Itä-Suomen AVIn alue           3 ALUEHALLINTOVIRASTO
+4    836 Länsi- ja Sisä-Suomen AVIn alue           4 ALUEHALLINTOVIRASTO
+5    837        Pohjois-Suomen AVIn alue           5 ALUEHALLINTOVIRASTO
+6    838                 Lapin AVIn alue           6 ALUEHALLINTOVIRASTO
+                          region.uri
+1 http://www.yso.fi/onto/kunnat/ahv1
+2 http://www.yso.fi/onto/kunnat/ahv2
+3 http://www.yso.fi/onto/kunnat/ahv3
+4 http://www.yso.fi/onto/kunnat/ahv4
+5 http://www.yso.fi/onto/kunnat/ahv5
+6 http://www.yso.fi/onto/kunnat/ahv6
+```
+
+
+
+=========================================================
+title:false
+
+
+```r
+dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, genders = c("female", 
+    "male", "total"), region.category = "EUROOPPA", region = "Suomi")
+
+# Translate gender names
+dat$Sukupuoli <- dat$gender
+dat$Sukupuoli <- gsub("female", "nainen", dat$Sukupuoli)
+dat$Sukupuoli <- gsub("male", "mies", dat$Sukupuoli)
+dat$Sukupuoli <- gsub("total", "ihminen", dat$Sukupuoli)
+dat$Sukupuoli <- factor(dat$Sukupuoli)
+```
+
+
+
+```r
+# Pick indicator name
+indicator.name <- as.character(unique(dat$indicator.title.fi))
+indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
+
+# Visualize
+library(ggplot2, quietly = TRUE)
+theme_set(theme_bw(20))
+ggplot(dat, aes(x = year, y = primary.value, group = Sukupuoli, color = Sukupuoli)) +
+  geom_line() +
+  ggtitle(paste(indicator.name, indicator.source, sep = " / ")) +
+  xlab("Vuosi") + ylab("Arvo") +
+  theme(title = element_text(size = 10)) +
+  theme(axis.title.x = element_text(size = 20)) +
+  theme(axis.title.y = element_text(size = 20)) + 
+  theme(legend.title = element_text(size = 15))
+```
+
+
+
+===================================================
+title:false
+
+![plot of chunk sotkanet5](slides-figure/sotkanet5.png) 
+
+
+
+statfi - ja suomalaiset datat
+============================================================
+
+
+```r
+library(devtools)
+install_github("statfi", "ropengov")
+library(statfi)
+datasets.statfi <- list_statfi_files()
+print(datasets.statfi[1,])
+```
+
+```
+                                                                 File
+1 http://pxweb2.stat.fi/database/StatFin/asu/asas/010_asas_tau_101.px
+     size          created          updated variables
+1 1230502 2012-02-13 11:27 2013-05-22 07:10         4
+                 tablesize     type LANGUAGE
+1 (321x8x5) x 28 = 359520  Maksuton       fi
+                                                                 TITLE
+1 Asuntokunnat muuttujina Alue, Asuntokunnan koko, Talotyyppi ja Vuosi
+                                               DESCRIPTION
+1 Asuntokunnat koon ja asunnon talotyypin mukaan 1985-2012
+```
+
+```r
+head(datasets.statfi$DESCRIPTION)
+```
+
+```
+[1] "Asuntokunnat koon ja asunnon talotyypin mukaan 1985-2012"                                 
+[2] "Asuntokunnat ja asuntoväestö asuntokunnan koon, huoneluvun ja talotyypin mukaan 2005-2012"
+[3] "Asuntokunnat ja asuntoväestö asumisväljyyden mukaan 1989-2012"                            
+[4] "Asuntokunnat koon, vanhimman iän ja sukupuolen sekä talotyypin mukaan 2005-2012"          
+[5] "Asuntokunnat ja asuntoväestö asuntokunnan koon ja hallintaperusteen mukaan 2005-2012"     
+[6] "Asunnot (lkm) talotyypin, käytössäolon ja rakennusvuoden mukaan 31.12.2012"               
+```
+
+```r
+
+url <- "http://pxweb2.stat.fi/database/StatFin/asu/asas/010_asas_tau_101.px"
+df <- get_statfi(url)
+df[1:3,]
+```
+
+```
+  Vuosi        Talotyyppi   Asuntokunnan.koko     Alue     dat
+1  1985 Kaikki talotyypit Kaikki asuntokunnat Koko maa 1887710
+2  1986 Kaikki talotyypit Kaikki asuntokunnat Koko maa 1916606
+3  1987 Kaikki talotyypit Kaikki asuntokunnat Koko maa 1947574
+```
+
+
+
+============================================================
+
+
+```r
+datasets.eurostat <- list_eurostat_files()
+url <- "http://pxweb2.stat.fi/database/StatFin/asu/asvu/190_asvu_tau_110_fi.px  "
+xx <- get_eurostat(url)
+
+```
+
+
+
+
+rustfare 
+==============================================================
+
+
+```r
+library(rustfare)
+dat <- GetRosstat("life_expectancy_men", "region")
+library(ggplot2)
+ggplot(dat, aes(x = year, y = value, color = region_en)) + geom_point() + geom_line() +
+geom_text(data = merge(dat, aggregate(year ~ region_en, dat, max),
+by = c("year","region_en")),
+aes(x = year, y = value, label = region_en), hjust = 1, vjust = -1,
+size = 3) + theme(legend.position = "none")
+```
+
+
+===============================================================
+title:false
+
+![plot of chunk rustfare12](slides-figure/rustfare12.png) 
+
+
+
+
+==================================================================
+title:false
+
+
+```r
+# cast the data into wide format
+library(reshape2)
+dat.w <- dcast(dat, region_en + id_shape ~ year, value.var = "value")
+
+shape <- GetRusGADM("region")
+library(maptools)
+dat.w <- dat.w[!is.na(dat.w$id_shape), ]
+row.names(dat.w) <- dat.w$id_shape
+row.names(shape) <- as.character(shape$ID_1)
+dat.w <- dat.w[order(row.names(dat.w)), ]
+shape <- shape[order(row.names(shape)), ]
+# from above
+difference <- setdiff(row.names(shape), row.names(dat.w))
+shape <- shape[!row.names(shape) %in% difference, ]
+# 
+df <- spCbind(shape, dat.w)
+
+library(ggplot2)
+library(rgeos)
+df$id <- rownames(df@data)
+map.points <- fortify(df, region = "id")
+map.df <- merge(map.points, df, by = "id")
+
+library(reshape2)
+map.df.l <- melt(data = map.df, id.vars = c("id", "long", "lat", "group"), measure.vars = c("X2000", 
+    "X2005", "X2009"))
+# lets tweak a bit and remove X's from year values and make it into
+# numerical
+map.df.l$variable <- str_replace_all(map.df.l$variable, "X", "")
+map.df.l$variable <- factor(map.df.l$variable)
+map.df.l$variable <- as.numeric(levels(map.df.l$variable))[map.df.l$variable]
+
+ggplot(map.df.l, aes(long,lat,group=group)) +
+  geom_polygon(aes(fill = value)) +
+  geom_polygon(data = map.df.l, aes(long,lat), 
+               fill=NA, 
+               color = "white",
+               size=0.1) + # white borders
+  coord_map(project="orthographic",
+            xlim=c(25,170),
+              ylim=c(45,70)) +
+  facet_wrap(~variable, ncol=1) +
+  theme_minimal()
+```
+
+
+
+
+==================================================================
+title:false
+
+![plot of chunk rustfare3](slides-figure/rustfare3.png) 
+
+
+
+
 
 SmarterPoland: Eurostatin datat kartalla
 =======================================================
@@ -230,6 +550,7 @@ shape <- spCbind(map_nuts2, dat3)
 
 
 ==============================================================
+title:false
 
 
 ```r
@@ -279,4 +600,4 @@ title:false
 
 
 
-==============================================================
+
