@@ -4,15 +4,29 @@ author: Markus Kainu
 date: Esitys TCWR-seminaarissa 7.3.2014 Turussa
 ---
 
+Johdanto
+==========================================
+
+Tältä sivulta löydät materiaalit perjantaiseen esitykseeni. Kyseessä ei ole tavanomainen tutkimuksen ja sen tulosten esittely, vaan erään *laskennallisen yhteiskuntatutkimuksen* edistämiseen keskittyvän ohjelmistoprojektin esittely.
+
+**Materiaalit**-kohdasta löydät esityksen diat sekä tammikuussa kirjoittamani johdannon avoimiin tutkimusmenetelmiin, jossa käyn pintapuolisesti läpi R-kieltä. Ko. teksti ei liity tähän esitykseen/projektiin kuin R-kielen kautta.
+
+**Mikä rOpenGov**-kohdassa esittelen tiiviisti mistä projektissa on kyse ja ketkä sen tekemiseen tällä hetkellä osallistuvat.
+
+*- Markus Kainu*
+
 
 Materiaalit
 ==============================================
 
-- [Esityksen slaidit .html-muodossa](slides.html) - (ei toimi vanhoilla Internet Explorer -selaimilla! Käytä Firefox, Chrome, Safari tms.)
-- Kirjottamani "kevyt johdatus avoimiin tutkimusmenetelmiin ja R-kieleen": [Fördjupning: Open research methods in computational social sciences and humanities: introducing R](http://digihist.se/5-metoder-inom-digital-historia/fordjupning-open-research-methods-in-computational-social-sciences-and-humanities-introducing-r/) 
+
+| linkki  | huom! |
+| --- | --- |
+| [slides.html]((slides.html)) | Esityksen diat .html-muodossa - (ei toimi vanhoilla Internet Explorer -selaimilla! Käytä Firefox, Chrome, Safari tms.) |
+| [Fördjupning: Open research methods in computational social sciences and humanities: introducing R](http://digihist.se/5-metoder-inom-digital-historia/fordjupning-open-research-methods-in-computational-social-sciences-and-humanities-introducing-r/) | Kirjottamani "kevyt johdatus avoimiin tutkimusmenetelmiin ja R-kieleen" |
 
 
-Johdanto aiheeseen - Mikä rOpenGov?
+Mikä rOpenGov?
 ==============================================
 
 [rOpenGov](http://ropengov.github.io) on *yhteisövetoinen ekosysteemi avoimen julkishallinnollisen datan ja laskennallisen yhteiskuntatutkimuksen R-paketeille*. 
@@ -20,7 +34,7 @@ Johdanto aiheeseen - Mikä rOpenGov?
 Suomessa ja maailmalla nopeasti lisääntyvät hallinnollisen ja muun avoimen datan virrat ovat erityisen kiinnostavia yhteiskuntatieteiden, datajournaslimin ja kansalaisten osallistumisen näkökulmasta, mutta laskennalliset työkalut näiden datavirtojen hyödyntämiseen vielä ovat puutteellisia. rOpenGov-projektissa kehitetään yhteisövetoista skaalautuvaa ohjelmistoekosysteemiä tavoitteena valjastaa avoimen laskennallisen analyysin ja uusien datalähteiden potentiaali yhteiskuntatieteiden käyttöön. Projekti ottaa oppia biotieteiden menestyksekkäiden ekosysteemiprojektien kuten [Bioconductor](http://www.bioconductor.org/):in tai [rOpenSci](http://ropensci.org/):n kokemuksista.
 
 
-Yhteisö
+rOpenGov-yhteisö
 ------------------------------------------------
 
 rOpenGov on yhteisöllinen projekti, joka rakentuu **ydintiimistä**, **pakettien kehittäjistä** ja **pakettien käyttäjistä**.  
