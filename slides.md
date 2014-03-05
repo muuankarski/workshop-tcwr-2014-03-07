@@ -30,16 +30,21 @@ transition-speed: fast
 Esityksen rakenne
 ========================================================
 
-1. Mikä rOpenGov?
-2. Miksi rOpenGov?
+1. Miksi?
+2. Mikä rOpenGov?
 3. Mitä rOpenGov:n avulla voi tehdä?
+    - Avoin hallinnollinen data
+    - Avoin tutkimusdata
+    - Laskennallinen yhteiskuntatutkimus
+4. Miten osallistua projektiin?
 
 
 
 ========================================================
-title: false
+type:section
 
-<h1>1. Mikä rOpenGov?</h1>
+<h1>1. Miksi?</h1>
+
 
 =======================================================
 title:false
@@ -55,6 +60,44 @@ rOpenGov
 >The rapidly emerging governmental and other open data streams provide novel opportunities for social sciences, data journalism, and citizen participation across the globe while computational tools to utilize these resources are lacking. **A community-driven software ecosystem provides a scalable solution and a potential to revolutionize the field, taking advantage of the lessons learned in similar initiatives in other fields such as [Bioconductor](http://www.bioconductor.org/) and [rOpenSci](http://ropensci.org/).**
 
 
+Internet ja tutkimus
+====================================================
+
+- Open government data is opening up novel opportunities for research
+- Ongoing paradigm shift:
+    - closed data & custom tools  ->  open data & flexible tools
+
+Computational workflows are having an increasingly central role in social and political sciences
+------------------------------------
+- Borrow approaches from other fields 
+    - (bioinformatics, climatology, economics, ecology, physics) 
+    - similar data formats, related analytical challenges !
+
+
+From Data to Knowledge
+=======================
+
+>The scale and scope of data-driven social science are expanding rapidly and revolutionizing the field; data access and integration at a new level
+
+
+New tools, new opportunities 
+============================================
+
+- promoting collaboration between computational & social scientist through simplified access to data and analysis tools
+
+1. Programmatic access to (already) thousands of   governmental data resources across the globe
+2. Online documentation
+3. Analytical tools to monitor decision-making, demographics,   economy, environment, historical data, etc.
+4. Transparent & reproducible social science research
+5. Wider implications: academic research, citizen science,   data journalism, education, ...
+
+
+
+========================================================
+type:section
+
+<h1>2. Mikä rOpenGov?</h1>
+
 Mikä rOpenGov?
 ==============================================
 
@@ -65,6 +108,20 @@ Suomessa ja maailmalla nopeasti lisääntyvät hallinnollisen ja muun avoimen da
 rOpenGov-projektissa kehitetään yhteisövetoista skaalautuvaa ohjelmistoekosysteemiä tavoitteena valjastaa avoimen laskennallisen analyysin ja uusien datalähteiden potentiaali yhteiskuntatieteiden käyttöön. 
 
 Projekti ottaa oppia biotieteiden menestyksekkäiden ekosysteemiprojektien kuten [Bioconductor](http://www.bioconductor.org/):in tai [rOpenSci](http://ropensci.org/):n kokemuksista.
+
+
+Kaksi tavoitetta
+============================================
+
+1. Pääsy dataan
+    - programmatic access to data resources
+    - transparent & ready-made preprocessing
+    - data catalogues
+    - harmonized data structures? 
+
+2. Datan analysoiminen
+    - customized analysis algorithms for social science data 
+    - standardization of analytical approaches
 
 
 rOpenGov-yhteisö
@@ -137,49 +194,6 @@ Projektin kieleksi on valittu R-kieli muuan muassa siksi että se tarjoaa:
 R:n puolesta puhuu lisäksi kielen ympärillä vaikuttava vahva ekosysteemi ja käyttäjäyhteisö. Lisäksi R on projektin tekijöille tutuin kieli ja sillä on vahvat näytöt samankaltaisista yhteisöllisistä projekteista muilta laskennallisten tieteiden aloilta. Samalla projektissa pidetään tarkkaa silmällä muiden ohjelmointikielien ja niiden ekosysteemien kehitystä, kuten [Python](http://www.python.org/)- ja [Julia](http://julialang.org/)-kielten, ja kielipolitiikkaa voidaan tulevaisuudessa laventaa.
 
 
-========================================================
-title: false
-
-<h1>2. Miksi rOpenGov? </br> ihan vaiheessa!!!</h1>
-
-Leon diat
-====================================================
-
-- Open government data is opening up novel opportunities for research
-- Ongoing paradigm shift:
-    - closed data & custom tools  ->  open data & flexible tools
-
-Computational workflows are having an increasingly central role in social and political sciences
-------------------------------------
-- Borrow approaches from other fields 
-    - (bioinformatics, climatology, economics, ecology, physics) 
-    - similar data formats, related analytical challenges !
-
-Two objectives
-============================================
-
-1. Pääsy dataan
-    - programmatic access to data resources
-    - transparent & ready-made preprocessing
-    - data catalogues
-    - harmonized data structures? 
-
-2. Datan analysoiminen
-    - customized analysis algorithms for social science data 
-    - standardization of analytical approaches
-
-
-New tools, new opportunities 
-============================================
-
-- promoting collaboration between computational & social scientist through simplified access to data and analysis tools
-
-1. Programmatic access to (already) thousands of   governmental data resources across the globe
-2. Online documentation
-3. Analytical tools to monitor decision-making, demographics, 	economy, environment, historical data, etc.
-4. Transparent & reproducible social science research
-5. Wider implications: academic research, citizen science, 	data journalism, education, ...
-
 
 
 Progress
@@ -207,17 +221,13 @@ Progress
 |   | Active development of guidelines and technical documentation |
 
 
-From Data to Knowledge
-=======================
-
->The scale and scope of data-driven social science are expanding rapidly and revolutionizing the field; data access and integration at a new level
-
-
-bigtitle
 ========================================================
-title: false
+type:section
 
-<h1>3. Mitä rOpenGov:n avulla voi tehdä? </br> ihan vaiheessa...!</h1>
+<h1>3. Mitä rOpenGov:n avulla voi tehdä?</h1>
+
+## Avoin hallinnollinen data
+
 
 sorvi - tapaus Sotkanet
 ==========================================================
@@ -599,5 +609,51 @@ title:false
 
 
 
+========================================================
+type:section
+
+<h1>3. Mitä rOpenGov:n avulla voi tehdä?</h1>
+
+## Avoin tutkimusdata
 
 
+
+========================================================
+type:section
+
+<h1>3. Mitä rOpenGov:n avulla voi tehdä?</h1>
+
+## Laskennallinen yhteiskuntatutkimus
+
+
+========================================================
+type:section
+
+<h1>4. Miten osallistua projektiin?</h1>
+
+
+Harkitse avointen analyysimenetelmien kuten R:n opettelemista!
+========================================================
+
+- 
+
+
+Liity yhteisöön!
+========================================================
+
+- [Google+](https://plus.google.com/u/0/communities/108289259916380218460)
+- IRC (ropengov@Freenode)
+- [rOpenGov blog](http://ropengov.github.io/)
+- [Twitter](https://twitter.com/ropengov)
+- Liity [ropengov-forum@googlegroups.com](https://groups.google.com/forum/#!forum/ropengov-forum) sähköpostilistalle
+
+
+========================================================
+type: section
+<h1>Kysymyksiä & kommentteja!</h1>
+
+<center>
+
+![](images/question.gif)
+
+</center>
