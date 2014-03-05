@@ -106,10 +106,12 @@ Liity yhteisöön!
 - Liity [ropengov-forum@googlegroups.com](https://groups.google.com/forum/#!forum/ropengov-forum) sähköpostilistalle
 
 
-Linkkejä
+Ajankohtaisia linkkejä
 ===============================================
 
-- [The intention of Open Science and Research initiative in Finland](http://www.tdata.fi/documents/47404/86137/The+intention+of+Open+Science+and+Research+initiative+in+Finland/d8558803-e050-45db-a6a5-90639fe62da9)
+- [Petus- ja kulttuuriministeriön *Avoimen tieteen ja tutkimuksen hanke vuosille 2014-2017](http://www.minedu.fi/OPM/Verkkouutiset/2014/03/tieteen_ja_tutkimuksen_avoimuus.html?lang=fi)
+    - [asettamispäätös](http://www.tdata.fi/documents/10180/43697/OKM+Avoimen+tieteen+ja+tutkimuksen+strategiaryhm%C3%A4n+ja+asiantuntijaryhm%C3%A4n....pdf/5acec092-683e-436d-b41a-2a1d66a51dac)
+    - [memo in English](http://www.tdata.fi/documents/47404/86137/The+intention+of+Open+Science+and+Research+initiative+in+Finland/d8558803-e050-45db-a6a5-90639fe62da9)
 - [linkki](http://url.com)
 - [linkki](http://url.com)
 - [linkki](http://url.com)
