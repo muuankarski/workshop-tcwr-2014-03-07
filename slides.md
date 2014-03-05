@@ -25,7 +25,16 @@ transition-speed: fast
 
 
 ---------| notes end |-----------------------------  --> 
- 
+
+
+========================================================
+title: false
+
+<center>
+
+![](http://www.harvestmeat.com/wp-content/uploads/2010/09/underconstruction-Copy.jpg)
+
+</center>
 
 Esityksen rakenne
 ========================================================
