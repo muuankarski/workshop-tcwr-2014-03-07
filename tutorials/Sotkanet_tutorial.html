@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Louhos-team" />
+  <title>Sotkanet-tutorial</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <style>
+  
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(fonts/Lato.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(fonts/LatoBold.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Lato Black'), local('Lato-Black'), url(fonts/LatoBlack.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Lato Italic'), local('Lato-Italic'), url(fonts/LatoItalic.woff) format('woff');
+  }
+  
+  
+  -something { /* Just to escape the effect of html tag above in pandoc*/
+  
+  }
+  
+  .title /* Pandoc title header (h1.title) */
+      {
+      text-align: center;
+  	border-width:0px;
+  	font-size: 1.5em;
+  	margin: 0 0 5px 0;
+  	word-spacing: .1em;
+  	border-bottom: 0px;
+  	text-transform:none;
+      }
+  
+  .author /* Pandoc author(s) header (h2.author) */
+      {
+      text-align: center;
+      font-size: 1.1em;
+      line-height: 1.2em;
+      border-bottom: 0px;
+      }
+  
+  .date /* Pandoc date header (h3.date) */
+      {
+  	font-family:  Lato, Arial;
+  	text-align: center;
+  	font-size: 1.1em;
+  	line-height: 1.2em;
+      }
+  
+  
+  body {
+      margin-left: 240px;
+      max-width:750px; 
+      border: 0px;
+      font-family: Lato, Helvetica, sans-serif;
+  }
+  
+  
+  #toc {
+      font-size:0.9em;
+      height: 100%;
+      position: fixed; 
+      width: 220px;
+      left: 5px;
+      padding-top: 20px;
+      color: #003333;
+      border-right: 1px dashed #C1C1C1;
+  }
+  
+  #toc_header {
+      font-size: 1em;
+      font-weight: bold;    
+      border-bottom: 1px dashed #C1C1C1;
+      color: black;
+  }
+  
+  
+  
+  #TOC li {
+      padding: 2px 4px;
+      margin-left: 2px;
+  }
+  
+  
+  #TOC a {
+      color: #003333;
+      display: block;
+  }
+  
+  
+  #TOC {
+      font-size:0.9em;
+      height: 100%;
+      position: fixed; 
+      width: 220px;
+      left: 5px;
+      padding-top: 20px;
+      color: #003333;
+      border-right: 1px dashed #C1C1C1;
+  }
+  
+  #TOC_HEADER {
+      font-size: 1em;
+      font-weight: bold;    
+      border-bottom: 1px dashed #C1C1C1;
+      color: black;
+  }
+  
+  
+  
+  #TOC li {
+      padding: 2px 4px;
+      margin-left: 2px;
+  }
+  
+  
+  #TOC a {
+      color: #003333;
+      display: block;
+  }
+  
+  
+  blockquote {
+  	padding-left: .5em; 
+      border-left: 2px solid #C1C1C1;
+  	font-style: italic;
+  }
+  
+  
+  pre {	
+     margin-top: 0;
+     max-width: 95%;
+     border: 1px dashed #ccc;
+     white-space: pre-wrap;
+     font-size:1.0em;
+      background: #FFFFFF;
+  }
+  
+  pre code {
+     display: block; 
+     padding: 0.2em;
+     font-size:1.0em;
+  }
+  
+  code.r, code.cpp {
+     background-color: #ECEEF0;
+  }
+  
+  
+  
+  ul {
+  	font-size: 100% !important;
+  	font-family: Lato, Helvetica, sans-serif;
+  }
+  li {
+  	font-family: Lato, Helvetica, sans-serif;
+   	font-size: 1em;
+   	line-height: 1.1em;
+  }
+  
+  
+  p {
+  	font-family: Lato, Helvetica, sans-serif;
+  	padding-top: 2px;
+  	padding-bottom: 2px;
+  	font-size: 1em;
+  	line-height: 1.2em;
+  }
+  ol {
+  	list-style: decimal outside;
+  	list-style-type: decimal;
+  	float: none;
+  	margin: .5em 0 .5em 30px;
+  	padding: 0;
+  }
+  ul {
+  	margin: .2em 0 .2em 10px;
+  	padding: 0;
+  }
+  UL li, ol li {
+  	line-height: 1.1em;
+  	padding: 2px;
+  }
+  a:link {
+  	color: #657b83;
+     /* text-decoration: none; */
+  }
+  a:hover {
+  	color: #657b83;
+  }
+  a:visited {
+  	color: #657b83;
+  }
+  a:focus {
+  	color: #657b83;
+  }
+  a:active {
+  	color: #657b83;
+  }
+  
+  h1 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.3em;
+  	padding: 2px;
+  	line-height: 1.3em;
+      font-weight: 400;
+  	/*letter-spacing: 0.06em;
+  	word-spacing: .1em;*/
+      border-bottom: 0.5px solid #657b83;
+  	text-transform:uppercase;
+      color: #657b83;
+  }
+  h2 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+      font-weight: 300;
+  	letter-spacing: 0.05em;
+  	word-spacing: .1em;
+  	border-bottom: 0.5px dashed #657b83;
+  /*	text-transform:capitalize;*/
+      color: #657b83;
+  
+  }
+  h3 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+      font-weight: 300;
+  	letter-spacing: 0.05em;
+  	word-spacing: .1em;
+      color: #657b83;
+  
+  }
+  h4 {
+  	font-family: Lato;
+  	font-size: 1.0em;
+  	padding: 2px;
+  	line-height: 1.0em;
+  	color: #555;
+  	font-weight: italic;
+      color: #657b83;
+  }
+  h5 {
+  	font-family: Avant Garde;
+  	font-size: 1.05em;
+  	padding: 2px;
+  	line-height: 1.15em;
+  	color: #555;
+  	font-weight: normal;
+      color: #657b83;
+  }
+  h6 {
+  	font-family: Lato;
+  	font-size: 1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+  	color: #555;
+  	font-weight: normal;
+      color: #657b83;
+  }
+  p.caption, table caption, caption{
+      margin-top:0em;
+      padding:2px;
+      font-weight: 600;
+      font-size:1.0em;
+      text-align:left;
+      color: #657b83;
+  }
+  
+  /* table styles */
+  table {
+  	border-collapse: collapse;
+  	border-spacing: 0;
+      line-height: 1.4em;
+  	font-size: 0.9em;
+  	/*font-family: monospace;*/
+  
+  }
+  .views-table, table {
+  	margin-left: 2px;
+  	margin-bottom: 10px;
+  	/*width: 1300px;*/
+  }
+  tr {
+  	line-height: 1.2em;
+  	border-bottom: #9e9e9e thin solid;
+  }
+  tr:last-child {
+  	line-height: 1.2em;
+  }
+  th {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  	text-align: left;
+  	border-bottom: #9e9e9e thin solid;
+  }
+  th:last-child {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  	text-align: left;
+  }
+  th:first-child {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border: #9e9e9e thin solid; */
+  }
+  tbody tr {
+  	line-height: 1.2em;
+  /*	border-left: #9e9e9e thin solid; */
+  }
+  tbody tr:nth-child(odd) {
+  	line-height: 1.2em;
+  	background-color: #F3F5F5;
+  }
+  td {
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  }
+  td:last-child {
+  	padding: 0 5px 0 5px;
+  }
+  DL {
+  	margin: .3em 0 .3em 0;
+  }
+  DT {
+  	margin: .3em 0 .3em 0;
+  }
+  DD {
+  	line-height: 1.5em;
+  	list-style: none;
+  	margin: .7em 0 .7em 2em;
+  }
+  td.active {
+  	background-color: transparent!important;
+  }
+  tr:last-child {
+  	border-bottom: #9e9e9e thin solid;
+  }
+  tr:first-child {
+  	border-top: #9e9e9e thin solid;
+  }
+  th:last-child {
+  /*	border-left: #9e9e9e thin solid; */
+  }
+  th:last-child {
+  	/*border-right: #9e9e9e thin solid;*/
+  }
+  </style>
+  
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Sotkanet-tutorial</h1>
+<h2 class="author">Louhos-team</h2>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#sotkanet-api-r-tools">Sotkanet API R tools</a><ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#listing-available-indicators">Listing available indicators</a></li>
+<li><a href="#querying-sotkanet-indicators">Querying SOTKAnet indicators</a></li>
+<li><a href="#effect-of-municipality-size">Effect of municipality size</a></li>
+<li><a href="#fetch-all-sotkanet-indicators">Fetch all SOTKAnet indicators</a></li>
+</ul></li>
+<li><a href="#licensing-and-citations">Licensing and Citations</a><ul>
+<li><a href="#sotkanet-data">SOTKAnet data</a></li>
+<li><a href="#sotkanet-r-package">SOTKAnet R package</a></li>
+<li><a href="#session-info">Session info</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="sotkanet-api-r-tools">Sotkanet API R tools</h1>
+<p>This is the <a href="http://ropengov.github.com/sotkanet">sotkanet</a> R package to access data from the <a href="http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu">Sotkanet portal</a> that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see <a href="http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta">Sotkanet indicator database</a> and <a href="http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF">API description</a>. This package is part of <a href="http://ropengov.github.com/">rOpenGov</a>.</p>
+<h3 id="installation">Installation</h3>
+<p>Release version for general users:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;sotkanet&quot;</span>)
+<span class="kw">library</span>(sotkanet)</code></pre>
+<p>Development version for developers:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+<span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;sotkanet&quot;</span>, <span class="st">&quot;ropengov&quot;</span>)
+<span class="kw">library</span>(sotkanet)</code></pre>
+<h3 id="listing-available-indicators">Listing available indicators</h3>
+<p>List available Sotkanet indicators:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sotkanet) 
+sotkanet.indicators &lt;-<span class="st"> </span><span class="kw">SotkanetIndicators</span>(<span class="dt">type =</span> <span class="st">&quot;table&quot;</span>)
+<span class="kw">head</span>(sotkanet.indicators)</code></pre>
+<pre><code>##   indicator
+## 1         4
+## 2         5
+## 3         6
+## 4         7
+## 5        74
+## 6       127
+##                                                                            indicator.title.fi
+## 1  Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä
+## 2                   Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä
+## 3 Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1000 vastaavanikäistä
+## 4                                                                 0 - 6-vuotiaat, % väestöstä
+## 5                                                      Yksinhuoltajaperheet, % lapsiperheistä
+## 6                                                                               Väestö 31.12.
+##   indicator.organization        indicator.organization.title.fi
+## 1                      2 Terveyden ja hyvinvoinnin laitos (THL)
+## 2                      2 Terveyden ja hyvinvoinnin laitos (THL)
+## 3                      2 Terveyden ja hyvinvoinnin laitos (THL)
+## 4                      3                          Tilastokeskus
+## 5                      3                          Tilastokeskus
+## 6                      3                          Tilastokeskus</code></pre>
+<p>List geographical regions with available indicators:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sotkanet.regions &lt;-<span class="st"> </span><span class="kw">SotkanetRegions</span>(<span class="dt">type =</span> <span class="st">&quot;table&quot;</span>)
+<span class="kw">head</span>(sotkanet.regions)</code></pre>
+<pre><code>##   region                 region.title.fi region.code     region.category
+## 1    833          Etelä-Suomen AVIn alue           1 ALUEHALLINTOVIRASTO
+## 2    834        Lounais-Suomen AVIn alue           2 ALUEHALLINTOVIRASTO
+## 3    835            Itä-Suomen AVIn alue           3 ALUEHALLINTOVIRASTO
+## 4    836 Länsi- ja Sisä-Suomen AVIn alue           4 ALUEHALLINTOVIRASTO
+## 5    837        Pohjois-Suomen AVIn alue           5 ALUEHALLINTOVIRASTO
+## 6    838                 Lapin AVIn alue           6 ALUEHALLINTOVIRASTO
+##                           region.uri
+## 1 http://www.yso.fi/onto/kunnat/ahv1
+## 2 http://www.yso.fi/onto/kunnat/ahv2
+## 3 http://www.yso.fi/onto/kunnat/ahv3
+## 4 http://www.yso.fi/onto/kunnat/ahv4
+## 5 http://www.yso.fi/onto/kunnat/ahv5
+## 6 http://www.yso.fi/onto/kunnat/ahv6</code></pre>
+<h3 id="querying-sotkanet-indicators">Querying SOTKAnet indicators</h3>
+<p>Get the <a href="http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu/metadata?type=I&amp;indicator=10013">indicator 10013</a> from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get indicator data</span>
+dat &lt;-<span class="st"> </span><span class="kw">GetDataSotkanet</span>(<span class="dt">indicators =</span> <span class="dv">10013</span>, <span class="dt">years =</span> <span class="dv">1990</span>:<span class="dv">2012</span>, 
+                   <span class="dt">genders =</span> <span class="kw">c</span>(<span class="st">&#39;female&#39;</span>, <span class="st">&#39;male&#39;</span>, <span class="st">&#39;total&#39;</span>), 
+               <span class="dt">region.category =</span> <span class="st">&quot;EUROOPPA&quot;</span>, 
+               <span class="dt">region =</span> <span class="st">&quot;Suomi&quot;</span>)
+
+<span class="co"># Investigate the first lines in the data</span>
+<span class="kw">head</span>(dat)</code></pre>
+<pre><code>##            region region.title.fi region.code region.category indicator
+## 10013.1139   1022           Suomi         246        EUROOPPA     10013
+## 10013.1140   1022           Suomi         246        EUROOPPA     10013
+## 10013.1141   1022           Suomi         246        EUROOPPA     10013
+## 10013.1142   1022           Suomi         246        EUROOPPA     10013
+## 10013.1143   1022           Suomi         246        EUROOPPA     10013
+## 10013.1144   1022           Suomi         246        EUROOPPA     10013
+##                    indicator.title.fi year gender primary.value
+## 10013.1139 (EU) Nuorisotyöttömyysaste 1991  total          16.3
+## 10013.1140 (EU) Nuorisotyöttömyysaste 2010   male          23.8
+## 10013.1141 (EU) Nuorisotyöttömyysaste 1996   male          29.5
+## 10013.1142 (EU) Nuorisotyöttömyysaste 2000  total          21.4
+## 10013.1143 (EU) Nuorisotyöttömyysaste 1995  total          29.7
+## 10013.1144 (EU) Nuorisotyöttömyysaste 1998   male          22.8
+##            absolute.value                indicator.organization.title.fi
+## 10013.1139             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
+## 10013.1140             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
+## 10013.1141             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
+## 10013.1142             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
+## 10013.1143             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
+## 10013.1144             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># Pick indicator name</span>
+indicator.name &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">unique</span>(dat$indicator.title.fi))
+indicator.source &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">unique</span>(dat$indicator.organization.title.fi))
+
+<span class="co"># Visualize</span>
+<span class="kw">library</span>(ggplot2, <span class="dt">quietly=</span><span class="ot">TRUE</span>)
+<span class="kw">theme_set</span>(<span class="kw">theme_bw</span>(<span class="dv">20</span>)); 
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> primary.value, <span class="dt">group =</span> gender, <span class="dt">color =</span> gender)) 
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="kw">paste</span>(indicator.name, indicator.source, <span class="dt">sep =</span> <span class="st">&quot; / &quot;</span>)) 
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Value&quot;</span>) 
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>))
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>))
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>))
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>))
+<span class="kw">print</span>(p)</code></pre>
+<div class="figure">
+<img src="figure/sotkanetData.png" alt="plot of chunk sotkanetData" /><p class="caption">plot of chunk sotkanetData</p>
+</div>
+<h3 id="effect-of-municipality-size">Effect of municipality size</h3>
+<p>Smaller municipalities have more random variation.</p>
+<pre class="sourceCode r"><code class="sourceCode r">selected.inds &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">127</span>, <span class="dv">178</span>)
+dat &lt;-<span class="st"> </span><span class="kw">GetDataSotkanet</span>(<span class="dt">indicators =</span> selected.inds, <span class="dt">years =</span> <span class="dv">2011</span>, <span class="dt">genders =</span> <span class="kw">c</span>(<span class="st">&#39;total&#39;</span>))
+datf &lt;-<span class="st"> </span>dat[, <span class="kw">c</span>(<span class="st">&quot;region.title.fi&quot;</span>, <span class="st">&quot;indicator.title.fi&quot;</span>, <span class="st">&quot;primary.value&quot;</span>)]
+dw &lt;-<span class="st"> </span><span class="kw">reshape</span>(datf, <span class="dt">idvar =</span> <span class="st">&quot;region.title.fi&quot;</span>, <span class="dt">timevar =</span> <span class="st">&quot;indicator.title.fi&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;wide&quot;</span>)
+<span class="kw">names</span>(dw) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Municipality&quot;</span>, <span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Migration&quot;</span>)
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dw, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log10</span>(Population), <span class="dt">y =</span> Migration)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>)
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Migration vs. population size&quot;</span>) 
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>))
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>))
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>))
+p &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>))
+<span class="kw">print</span>(p)</code></pre>
+<div class="figure">
+<img src="figure/sotkanetVisu3.png" alt="plot of chunk sotkanetVisu3" /><p class="caption">plot of chunk sotkanetVisu3</p>
+</div>
+<h3 id="fetch-all-sotkanet-indicators">Fetch all SOTKAnet indicators</h3>
+<p>This takes for a long time and is not recommended for regular use. Save the data on your local disk for further work.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># These indicators have problems with R routines:</span>
+probematic.indicators &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1575</span>, <span class="dv">1743</span>, <span class="dv">1826</span>, <span class="dv">1861</span>, <span class="dv">1882</span>, <span class="dv">1924</span>, <span class="dv">1952</span>, <span class="dv">2000</span>, <span class="dv">2001</span>, <span class="dv">2033</span>, <span class="dv">2050</span>, <span class="dv">3386</span>, <span class="dv">3443</span>)
+
+<span class="co"># Get data for all indicators</span>
+datlist &lt;-<span class="st"> </span><span class="kw">list</span>()
+for (ind in <span class="kw">setdiff</span>(sotkanet.indicators$indicator, probematic.indicators)) {
+  datlist[[<span class="kw">as.character</span>(ind)]] &lt;-<span class="st"> </span><span class="kw">GetDataSotkanet</span>(<span class="dt">indicators =</span> ind, <span class="dt">years =</span> <span class="dv">1990</span>:<span class="dv">2013</span>, <span class="dt">genders =</span> <span class="kw">c</span>(<span class="st">&#39;female&#39;</span>, <span class="st">&#39;male&#39;</span>, <span class="st">&#39;total&#39;</span>))
+}
+
+<span class="co"># Combine tables (this may require considerable time and memory </span>
+<span class="co"># for the full data set)</span>
+dat &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>, datlist)</code></pre>
+<p>For further usage examples, see <a href="http://louhos.wordpress.com">Louhos-blog</a>, and <a href="https://github.com/louhos/takomo/tree/master/Sotkanet">takomo</a>.</p>
+<h1 id="licensing-and-citations">Licensing and Citations</h1>
+<h3 id="sotkanet-data">SOTKAnet data</h3>
+<p>Cite SOTKAnet and link to <a href="http://www.sotkanet.fi/">http://www.sotkanet.fi</a>. Also mention indicator provider.</p>
+<ul>
+<li><a href="http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta">Full license and terms of use</a>.</li>
+</ul>
+<p>Central points:</p>
+<ul>
+<li>SOTKAnet REST API is meant for non-regular data queries. Avoid regular and repeated downloads.</li>
+<li>SOTKAnet API can be used as the basis for other systems</li>
+<li>Metadata for regions and indicators are under <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</a></li>
+<li>THL indicators are under <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</a></li>
+<li>Indicators provided by third parties can be used only by separate agreement!</li>
+</ul>
+<h3 id="sotkanet-r-package">SOTKAnet R package</h3>
+<p>This work can be freely used, modified and distributed under the <a href="http://en.wikipedia.org/wiki/BSD_licenses">Two-clause FreeBSD license</a>. Kindly cite the R package as ‘Leo Lahti, Einari Happonen, Juuso Parkkinen ja Joona Lehtomaki (2013). sotkanet R package. URL: http://www.github.com/ropengov/sotkanet’.</p>
+<h3 id="session-info">Session info</h3>
+<p>This vignette was created with</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
+<pre><code>## R version 3.0.2 (2013-09-25)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## 
+## locale:
+##  [1] LC_CTYPE=fi_FI.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=fi_FI.UTF-8        LC_COLLATE=fi_FI.UTF-8    
+##  [5] LC_MONETARY=fi_FI.UTF-8    LC_MESSAGES=fi_FI.UTF-8   
+##  [7] LC_PAPER=fi_FI.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=fi_FI.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] sotkanet_0.9.01   rgdal_0.8-16      SmarterPoland_1.2
+##  [4] rjson_0.2.13      reshape_0.8.4     plyr_1.8.1       
+##  [7] mapproj_1.2-2     maps_2.3-6        rgeos_0.3-3      
+## [10] maptools_0.8-29   sp_1.0-14         ggplot2_0.9.3.1  
+## [13] stringr_0.6.2     reshape2_1.2.2    XML_3.98-1.1     
+## [16] rustfare_0.1.1    knitr_1.5.22     
+## 
+## loaded via a namespace (and not attached):
+##  [1] codetools_0.2-8    colorspace_1.2-4   dichromat_2.0-0   
+##  [4] digest_0.6.4       evaluate_0.5.1     foreign_0.8-59    
+##  [7] formatR_0.10       grid_3.0.2         gtable_0.1.2      
+## [10] labeling_0.2       lattice_0.20-27    MASS_7.3-29       
+## [13] munsell_0.4.2      proto_0.3-10       RColorBrewer_1.0-5
+## [16] Rcpp_0.11.0        scales_0.2.3       tools_3.0.2</code></pre>
+</body>
+</html>

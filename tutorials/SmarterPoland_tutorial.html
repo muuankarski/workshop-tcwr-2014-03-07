@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Markus Kainu" />
+  <title>SmarterPoland-tutorial on EUROSTAT data</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <style>
+  
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(fonts/Lato.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(fonts/LatoBold.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Lato Black'), local('Lato-Black'), url(fonts/LatoBlack.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Lato Italic'), local('Lato-Italic'), url(fonts/LatoItalic.woff) format('woff');
+  }
+  
+  
+  -something { /* Just to escape the effect of html tag above in pandoc*/
+  
+  }
+  
+  .title /* Pandoc title header (h1.title) */
+      {
+      text-align: center;
+  	border-width:0px;
+  	font-size: 1.5em;
+  	margin: 0 0 5px 0;
+  	word-spacing: .1em;
+  	border-bottom: 0px;
+  	text-transform:none;
+      }
+  
+  .author /* Pandoc author(s) header (h2.author) */
+      {
+      text-align: center;
+      font-size: 1.1em;
+      line-height: 1.2em;
+      border-bottom: 0px;
+      }
+  
+  .date /* Pandoc date header (h3.date) */
+      {
+  	font-family:  Lato, Arial;
+  	text-align: center;
+  	font-size: 1.1em;
+  	line-height: 1.2em;
+      }
+  
+  
+  body {
+      margin-left: 240px;
+      max-width:750px; 
+      border: 0px;
+      font-family: Lato, Helvetica, sans-serif;
+  }
+  
+  
+  #toc {
+      font-size:0.9em;
+      height: 100%;
+      position: fixed; 
+      width: 220px;
+      left: 5px;
+      padding-top: 20px;
+      color: #003333;
+      border-right: 1px dashed #C1C1C1;
+  }
+  
+  #toc_header {
+      font-size: 1em;
+      font-weight: bold;    
+      border-bottom: 1px dashed #C1C1C1;
+      color: black;
+  }
+  
+  
+  
+  #TOC li {
+      padding: 2px 4px;
+      margin-left: 2px;
+  }
+  
+  
+  #TOC a {
+      color: #003333;
+      display: block;
+  }
+  
+  
+  #TOC {
+      font-size:0.9em;
+      height: 100%;
+      position: fixed; 
+      width: 220px;
+      left: 5px;
+      padding-top: 20px;
+      color: #003333;
+      border-right: 1px dashed #C1C1C1;
+  }
+  
+  #TOC_HEADER {
+      font-size: 1em;
+      font-weight: bold;    
+      border-bottom: 1px dashed #C1C1C1;
+      color: black;
+  }
+  
+  
+  
+  #TOC li {
+      padding: 2px 4px;
+      margin-left: 2px;
+  }
+  
+  
+  #TOC a {
+      color: #003333;
+      display: block;
+  }
+  
+  
+  blockquote {
+  	padding-left: .5em; 
+      border-left: 2px solid #C1C1C1;
+  	font-style: italic;
+  }
+  
+  
+  pre {	
+     margin-top: 0;
+     max-width: 95%;
+     border: 1px dashed #ccc;
+     white-space: pre-wrap;
+     font-size:1.0em;
+      background: #FFFFFF;
+  }
+  
+  pre code {
+     display: block; 
+     padding: 0.2em;
+     font-size:1.0em;
+  }
+  
+  code.r, code.cpp {
+     background-color: #ECEEF0;
+  }
+  
+  
+  
+  ul {
+  	font-size: 100% !important;
+  	font-family: Lato, Helvetica, sans-serif;
+  }
+  li {
+  	font-family: Lato, Helvetica, sans-serif;
+   	font-size: 1em;
+   	line-height: 1.1em;
+  }
+  
+  
+  p {
+  	font-family: Lato, Helvetica, sans-serif;
+  	padding-top: 2px;
+  	padding-bottom: 2px;
+  	font-size: 1em;
+  	line-height: 1.2em;
+  }
+  ol {
+  	list-style: decimal outside;
+  	list-style-type: decimal;
+  	float: none;
+  	margin: .5em 0 .5em 30px;
+  	padding: 0;
+  }
+  ul {
+  	margin: .2em 0 .2em 10px;
+  	padding: 0;
+  }
+  UL li, ol li {
+  	line-height: 1.1em;
+  	padding: 2px;
+  }
+  a:link {
+  	color: #657b83;
+     /* text-decoration: none; */
+  }
+  a:hover {
+  	color: #657b83;
+  }
+  a:visited {
+  	color: #657b83;
+  }
+  a:focus {
+  	color: #657b83;
+  }
+  a:active {
+  	color: #657b83;
+  }
+  
+  h1 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.3em;
+  	padding: 2px;
+  	line-height: 1.3em;
+      font-weight: 400;
+  	/*letter-spacing: 0.06em;
+  	word-spacing: .1em;*/
+      border-bottom: 0.5px solid #657b83;
+  	text-transform:uppercase;
+      color: #657b83;
+  }
+  h2 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+      font-weight: 300;
+  	letter-spacing: 0.05em;
+  	word-spacing: .1em;
+  	border-bottom: 0.5px dashed #657b83;
+  /*	text-transform:capitalize;*/
+      color: #657b83;
+  
+  }
+  h3 {
+  	font-family:  Lato, Arial;
+  	font-size: 1.1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+      font-weight: 300;
+  	letter-spacing: 0.05em;
+  	word-spacing: .1em;
+      color: #657b83;
+  
+  }
+  h4 {
+  	font-family: Lato;
+  	font-size: 1.0em;
+  	padding: 2px;
+  	line-height: 1.0em;
+  	color: #555;
+  	font-weight: italic;
+      color: #657b83;
+  }
+  h5 {
+  	font-family: Avant Garde;
+  	font-size: 1.05em;
+  	padding: 2px;
+  	line-height: 1.15em;
+  	color: #555;
+  	font-weight: normal;
+      color: #657b83;
+  }
+  h6 {
+  	font-family: Lato;
+  	font-size: 1em;
+  	padding: 2px;
+  	line-height: 1.1em;
+  	color: #555;
+  	font-weight: normal;
+      color: #657b83;
+  }
+  p.caption, table caption, caption{
+      margin-top:0em;
+      padding:2px;
+      font-weight: 600;
+      font-size:1.0em;
+      text-align:left;
+      color: #657b83;
+  }
+  
+  /* table styles */
+  table {
+  	border-collapse: collapse;
+  	border-spacing: 0;
+      line-height: 1.4em;
+  	font-size: 0.9em;
+  	/*font-family: monospace;*/
+  
+  }
+  .views-table, table {
+  	margin-left: 2px;
+  	margin-bottom: 10px;
+  	/*width: 1300px;*/
+  }
+  tr {
+  	line-height: 1.2em;
+  	border-bottom: #9e9e9e thin solid;
+  }
+  tr:last-child {
+  	line-height: 1.2em;
+  }
+  th {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  	text-align: left;
+  	border-bottom: #9e9e9e thin solid;
+  }
+  th:last-child {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  	text-align: left;
+  }
+  th:first-child {
+  	margin: 5px 0 5px 0;
+  	padding: 0 5px 0 5px;
+  /*	border: #9e9e9e thin solid; */
+  }
+  tbody tr {
+  	line-height: 1.2em;
+  /*	border-left: #9e9e9e thin solid; */
+  }
+  tbody tr:nth-child(odd) {
+  	line-height: 1.2em;
+  	background-color: #F3F5F5;
+  }
+  td {
+  	padding: 0 5px 0 5px;
+  /*	border-right: #9e9e9e thin solid; */
+  }
+  td:last-child {
+  	padding: 0 5px 0 5px;
+  }
+  DL {
+  	margin: .3em 0 .3em 0;
+  }
+  DT {
+  	margin: .3em 0 .3em 0;
+  }
+  DD {
+  	line-height: 1.5em;
+  	list-style: none;
+  	margin: .7em 0 .7em 2em;
+  }
+  td.active {
+  	background-color: transparent!important;
+  }
+  tr:last-child {
+  	border-bottom: #9e9e9e thin solid;
+  }
+  tr:first-child {
+  	border-top: #9e9e9e thin solid;
+  }
+  th:last-child {
+  /*	border-left: #9e9e9e thin solid; */
+  }
+  th:last-child {
+  	/*border-right: #9e9e9e thin solid;*/
+  }
+  </style>
+  
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="header">
+<h1 class="title">SmarterPoland-tutorial on EUROSTAT data</h1>
+<h2 class="author">Markus Kainu</h2>
+<h3 class="date">March 6, 2014</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#using-smarterpoland-package-in-accessing-eurostat-data">Using SmarterPoland-package in accessing Eurostat data</a><ul>
+<li><a href="#search">Search</a></li>
+<li><a href="#plot-at-nuts2-level">Plot at nuts2-level</a></li>
+<li><a href="#plot-at-nuts1-level">Plot at nuts1-level</a></li>
+</ul></li>
+<li><a href="#spatial-visualisation">Spatial visualisation</a><ul>
+<li><a href="#importing-the-data">Importing the data</a></li>
+<li><a href="#load-the-gisco-shapefile-subset-it-to-nuts2-level-and-merge-the-eurostat-attribute-data-with-it-into-single-spatialpolygondataframe">Load the GISCO shapefile, subset it to NUTS2-level and merge the Eurostat attribute data with it into single <code>SpatialPolygonDataFrame</code></a></li>
+<li><a href="#munging-the-shapefile-into-data.frame-and-ready-for-ggplot-plotting">Munging the shapefile into data.frame and ready for ggplot-plotting</a></li>
+<li><a href="#and-finally-the-plot-using-ggplot2">And finally the plot using ggplot2</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="using-smarterpoland-package-in-accessing-eurostat-data">Using SmarterPoland-package in accessing Eurostat data</h1>
+<p><a href="http://cran.r-project.org/web/packages/SmarterPoland/index.html">SmarterPoland-package</a> provides a straghtforward connection to Eurostat data. It is uninformatively described as:</p>
+<blockquote>
+<p>A set of tools developed by the Foundation SmarterPoland.pl Tools for accessing and processing datasets presented on the blog SmarterPoland.pl.</p>
+</blockquote>
+<p>But in real terms it has functionality only towards Eurostat. Here is a brief demo how you can search for <em>material deprivation</em> and then create a line plot at NUTS2 level.</p>
+<h2 id="search">Search</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(SmarterPoland)</code></pre>
+<pre><code>## Loading required package: reshape
+## Loading required package: plyr
+## 
+## Attaching package: &#39;reshape&#39;
+## 
+## The following objects are masked from &#39;package:plyr&#39;:
+## 
+##     rename, round_any
+## 
+## The following objects are masked from &#39;package:reshape2&#39;:
+## 
+##     colsplit, melt, recast
+## 
+## Loading required package: rjson</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">searchresults &lt;-<span class="st"> </span><span class="kw">grepEurostatTOC</span>(<span class="st">&quot;material deprivation&quot;</span>)
+df &lt;-<span class="st"> </span><span class="kw">getEurostatRCV</span>(<span class="dt">kod =</span> <span class="st">&quot;ilc_mddd21&quot;</span>)</code></pre>
+<h2 id="plot-at-nuts2-level">Plot at nuts2-level</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># time variable into numerical</span>
+df$time &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">levels</span>(df$time))[df$time]
+cname &lt;-<span class="st"> </span><span class="kw">subset</span>(df, time ==<span class="st"> </span><span class="dv">2011</span>)
+
+<span class="co"># plot</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>value, <span class="dt">color=</span>geo,<span class="dt">group=</span>geo)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data=</span>cname, 
+            <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>value,<span class="dt">label=</span>geo), <span class="dt">hjust=</span>-<span class="fl">0.3</span>) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;material deprivation in EU at NUTS2-level&quot;</span>,
+       <span class="dt">y=</span><span class="st">&quot;population share (%)&quot;</span>) +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">2003</span>,<span class="dv">2012</span>)) +
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="dv">2003</span>:<span class="dv">2011</span>)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing missing values (geom_point).
+## Warning: Removed 837 rows containing missing values (geom_path).
+## Warning: Removed 14 rows containing missing values (geom_text).</code></pre>
+<div class="figure">
+<img src="figure/smaterpolan02.png" alt="plot of chunk smaterpolan02" /><p class="caption">plot of chunk smaterpolan02</p>
+</div>
+<h2 id="plot-at-nuts1-level">Plot at nuts1-level</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset geo-names only lenght of 2 characters</span>
+df$geo &lt;-<span class="st"> </span><span class="kw">as.character</span>(df$geo)
+df$geo.n &lt;-<span class="st"> </span><span class="kw">nchar</span>(df$geo)
+df &lt;-<span class="st"> </span><span class="kw">subset</span>(df, geo.n &lt;<span class="st"> </span><span class="dv">3</span>)
+
+cname &lt;-<span class="st"> </span><span class="kw">subset</span>(df, time ==<span class="st"> </span><span class="dv">2011</span>)
+
+<span class="co"># plot</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>value, <span class="dt">color=</span>geo,<span class="dt">group=</span>geo)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data=</span>cname, 
+            <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>value,<span class="dt">label=</span>geo), <span class="dt">hjust=</span>-<span class="fl">0.3</span>) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;material deprivation in EU at NUTS2-level&quot;</span>,
+       <span class="dt">y=</span><span class="st">&quot;population share (%)&quot;</span>) +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">2003</span>,<span class="dv">2012</span>)) +
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="dv">2003</span>:<span class="dv">2011</span>)</code></pre>
+<pre><code>## Warning: Removed 103 rows containing missing values (geom_point).
+## Warning: Removed 93 rows containing missing values (geom_path).
+## Warning: Removed 1 rows containing missing values (geom_text).</code></pre>
+<div class="figure">
+<img src="figure/smaterpolan03.png" alt="plot of chunk smaterpolan03" /><p class="caption">plot of chunk smaterpolan03</p>
+</div>
+<h1 id="spatial-visualisation">Spatial visualisation</h1>
+<p>This is only a a brief description how to access and use spatial shapefiles of Europe published by EUROSTAT at <a href="http://epp.eurostat.ec.europa.eu/portal/page/portal/gisco_Geographical_information_maps/popups/references/administrative_units_statistical_units_1">Administrative units / Statistical units</a>. Here I’m using the 1:60 million scale Shapefile from year 2010.</p>
+<p>As a plotted data we use the nuts2-level rates of material deprivation which we imported from EUROSTAT on page <a href="smarterpoland.html">SmarterPoland-package.</a></p>
+<h2 id="importing-the-data">Importing the data</h2>
+<p>Same code as in <a href="smarterpoland.html">SmarterPoland-package.</a> excluding the plots.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(SmarterPoland)
+df &lt;-<span class="st"> </span><span class="kw">getEurostatRaw</span>(<span class="dt">kod =</span> <span class="st">&quot;ilc_mddd21&quot;</span>)
+<span class="co">#</span>
+<span class="kw">names</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;xx&quot;</span>, <span class="dv">2011</span>:<span class="dv">2003</span>)
+
+df$unit &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">strsplit</span>(<span class="kw">as.character</span>(df$xx), <span class="st">&quot;,&quot;</span>), <span class="st">&quot;[&quot;</span>, <span class="dv">1</span>)
+df$geo.time &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">strsplit</span>(<span class="kw">as.character</span>(df$xx), <span class="st">&quot;,&quot;</span>), <span class="st">&quot;[&quot;</span>, <span class="dv">2</span>)
+
+df.l &lt;-<span class="st"> </span><span class="kw">melt</span>(<span class="dt">data =</span> df, <span class="dt">id.vars =</span> <span class="st">&quot;geo.time&quot;</span>, <span class="dt">measure.vars =</span> <span class="kw">c</span>(<span class="st">&quot;2003&quot;</span>, <span class="st">&quot;2004&quot;</span>, 
+    <span class="st">&quot;2005&quot;</span>, <span class="st">&quot;2006&quot;</span>, <span class="st">&quot;2007&quot;</span>, <span class="st">&quot;2008&quot;</span>, <span class="st">&quot;2009&quot;</span>, <span class="st">&quot;2010&quot;</span>, <span class="st">&quot;2011&quot;</span>))
+
+df.l$geo.time &lt;-<span class="st"> </span><span class="kw">unlist</span>(df.l$geo.time)  <span class="co"># unlist the geo.time variable</span></code></pre>
+<h2 id="load-the-gisco-shapefile-subset-it-to-nuts2-level-and-merge-the-eurostat-attribute-data-with-it-into-single-spatialpolygondataframe">Load the GISCO shapefile, subset it to NUTS2-level and merge the Eurostat attribute data with it into single <code>SpatialPolygonDataFrame</code></h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="st">&quot;http://epp.eurostat.ec.europa.eu/cache/GISCO/geodatafiles/NUTS_2010_60M_SH.zip&quot;</span>, 
+    <span class="dt">destfile=</span><span class="st">&quot;NUTS_2010_60M_SH.zip&quot;</span>)
+<span class="co"># unzip to SpatialPolygonsDataFrame</span>
+<span class="kw">unzip</span>(<span class="st">&quot;NUTS_2010_60M_SH.zip&quot;</span>)
+<span class="kw">library</span>(rgdal)</code></pre>
+<pre><code>## rgdal: version: 0.8-16, (SVN revision 498)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 1.7.3, released 2010/11/10
+## Path to GDAL shared files: /usr/share/gdal/1.7
+## GDAL does not use iconv for recoding strings.
+## Loaded PROJ.4 runtime: Rel. 4.7.1, 23 September 2009, [PJ_VERSION: 470]
+## Path to PROJ.4 shared files: (autodetected)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">map &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&quot;./NUTS_2010_60M_SH/data&quot;</span>, <span class="dt">layer =</span> <span class="st">&quot;NUTS_RG_60M_2010&quot;</span>)</code></pre>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;./NUTS_2010_60M_SH/data&quot;, layer: &quot;NUTS_RG_60M_2010&quot;
+## with 1920 features and 4 fields
+## Feature type: wkbPolygon with 2 dimensions</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># as the data is at NUTS2-level, we subset the spatialpolygondataframe</span>
+map_nuts2 &lt;-<span class="st"> </span><span class="kw">subset</span>(map, STAT_LEVL_ &lt;=<span class="st"> </span><span class="dv">2</span>)
+<span class="co"># dim show how many regions are in the spatialpolygondataframe</span>
+<span class="kw">dim</span>(map_nuts2)</code></pre>
+<pre><code>## [1] 467   4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dim show how many regions are in the data.frame</span>
+<span class="kw">dim</span>(df)</code></pre>
+<pre><code>## [1] 208  14</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Spatial dataframe has 467 rows and attribute data 223. </span>
+<span class="co"># We need to make attribute data to have similar number of rows</span>
+NUTS_ID &lt;-<span class="st"> </span><span class="kw">as.character</span>(map_nuts2$NUTS_ID)
+VarX &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;empty&quot;</span>, <span class="dv">467</span>)
+dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(NUTS_ID,VarX)
+<span class="co"># then we shall merge this with Eurostat data.frame</span>
+dat2 &lt;-<span class="st"> </span><span class="kw">merge</span>(dat,df,<span class="dt">by.x=</span><span class="st">&quot;NUTS_ID&quot;</span>,<span class="dt">by.y=</span><span class="st">&quot;geo.time&quot;</span>, <span class="dt">all.x=</span><span class="ot">TRUE</span>)
+## merge this manipulated attribute data with the spatialpolygondataframe
+<span class="co"># there are still duplicates in the data, remove them</span>
+dat2$dup &lt;-<span class="st"> </span><span class="kw">duplicated</span>(dat2$NUTS_ID)
+dat3 &lt;-<span class="st"> </span><span class="kw">subset</span>(dat2, dup ==<span class="st"> </span><span class="ot">FALSE</span>)
+## rownames
+<span class="kw">row.names</span>(dat3) &lt;-<span class="st"> </span>dat3$NUTS_ID
+<span class="kw">row.names</span>(map_nuts2) &lt;-<span class="st"> </span><span class="kw">as.character</span>(map_nuts2$NUTS_ID)
+## order data
+dat3 &lt;-<span class="st"> </span>dat3[<span class="kw">order</span>(<span class="kw">row.names</span>(dat3)), ]
+map_nuts2 &lt;-<span class="st"> </span>map_nuts2[<span class="kw">order</span>(<span class="kw">row.names</span>(map_nuts2)), ]
+## join
+<span class="kw">library</span>(maptools)
+shape &lt;-<span class="st"> </span><span class="kw">spCbind</span>(map_nuts2, dat3)</code></pre>
+<h2 id="munging-the-shapefile-into-data.frame-and-ready-for-ggplot-plotting">Munging the shapefile into data.frame and ready for ggplot-plotting</h2>
+<pre class="sourceCode r"><code class="sourceCode r">## fortify spatialpolygondataframe into data.frame
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(rgeos)
+shape$id &lt;-<span class="st"> </span><span class="kw">rownames</span>(shape@data)
+map.points &lt;-<span class="st"> </span><span class="kw">fortify</span>(shape, <span class="dt">region =</span> <span class="st">&quot;id&quot;</span>)
+map.df &lt;-<span class="st"> </span><span class="kw">merge</span>(map.points, shape, <span class="dt">by =</span> <span class="st">&quot;id&quot;</span>)
+<span class="co"># As we want to plot map faceted by years from 2003 to 2011</span>
+<span class="co"># we have to melt it into long format</span>
+<span class="kw">library</span>(reshape2)
+map.df.l &lt;-<span class="st"> </span><span class="kw">melt</span>(<span class="dt">data =</span> map.df, <span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>,<span class="st">&quot;group&quot;</span>), 
+                 <span class="dt">measure.vars =</span> <span class="kw">c</span>(<span class="st">&quot;X2003&quot;</span>, <span class="st">&quot;X2004&quot;</span>,
+                                  <span class="st">&quot;X2005&quot;</span>, <span class="st">&quot;X2006&quot;</span>, 
+                                  <span class="st">&quot;X2007&quot;</span>, <span class="st">&quot;X2008&quot;</span>, 
+                                  <span class="st">&quot;X2009&quot;</span>, <span class="st">&quot;X2010&quot;</span>, <span class="st">&quot;X2011&quot;</span>))
+<span class="co"># year variable (variable) is class string and type X20xx. </span>
+<span class="co"># Lets remove the X and convert it to numerical</span>
+<span class="kw">library</span>(stringr)
+map.df.l$variable &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(map.df.l$variable, <span class="st">&quot;X&quot;</span>,<span class="st">&quot;&quot;</span>)
+map.df.l$variable &lt;-<span class="st"> </span><span class="kw">factor</span>(map.df.l$variable)
+map.df.l$variable &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">levels</span>(map.df.l$variable))[map.df.l$variable]</code></pre>
+<h2 id="and-finally-the-plot-using-ggplot2">And finally the plot using ggplot2</h2>
+<p>Map shows proportion of materially deprived households at the NUTS2 level. Grey color indicates missing data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="co"># plot faceted by year</span>
+<span class="kw">ggplot</span>(map.df.l, <span class="kw">aes</span>(long,lat,<span class="dt">group=</span>group)) +
+<span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> value)) +
+<span class="st">  </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> map.df.l, <span class="kw">aes</span>(long,lat), 
+               <span class="dt">fill=</span><span class="ot">NA</span>, 
+               <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>,
+               <span class="dt">size=</span><span class="fl">0.1</span>) +<span class="st"> </span><span class="co"># white borders</span>
+<span class="st">  </span><span class="kw">coord_map</span>(<span class="dt">project=</span><span class="st">&quot;orthographic&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(-<span class="dv">22</span>,<span class="dv">34</span>),
+              <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">35</span>,<span class="dv">70</span>)) +<span class="st"> </span><span class="co"># projection</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(~variable, <span class="dt">ncol=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre>
+<div class="figure">
+<img src="figure/smaterpoland4.png" alt="plot of chunk smaterpoland4" /><p class="caption">plot of chunk smaterpoland4</p>
+</div>
+</body>
+</html>
