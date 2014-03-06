@@ -55,32 +55,38 @@ type:section
 <h1>1. Miksi?</h1>
 
 
+Muutos?
 =======================================================
-title:false
 
-TCWR
-------------------------------------------
+>an important driver of the change sweeping the field is the enormous quantities of highly informative data inundating almost every area we study. 
 
->Turku Center for Welfare Research was founded in 1997 in a cooperative effort by the three universities in Turku (Åbo). **The Center is intended to more efficiently coordinate resources, both in teaching and research.**
+>In the last half-century, the information base of social science research has primarily come from three sources: survey research, end-of-period government statistics, and one-off studies of particular people, places, or events**. 
 
-rOpenGov
-------------------------------------
-
->The rapidly emerging governmental and other open data streams provide novel opportunities for social sciences, data journalism, and citizen participation across the globe while computational tools to utilize these resources are lacking. **A community-driven software ecosystem provides a scalable solution and a potential to revolutionize the field, taking advantage of the lessons learned in similar initiatives in other fields such as [Bioconductor](http://www.bioconductor.org/) and [rOpenSci](http://ropensci.org/).**
+>In the next half-century, these sources will still be used and improved, but the number and diversity of other sources of information are increasing exponentially and are already many orders of magnitude more informative than ever before. [(Gary King (2014, p. 166), the director of the Institute for Quantitative Social Science at Harvard University)](http://www.iq.harvard.edu/)
 
 
-Internet ja tutkimus
+Muutos 1
 ====================================================
 
-- Open government data is opening up novel opportunities for research
-- Ongoing paradigm shift:
-    - closed data & custom tools  ->  open data & flexible tools
+Paradigmaattinen käänne yhteiskuntatieteissä
+-------------------------------------------
 
-Computational workflows are having an increasingly central role in social and political sciences
-------------------------------------
-- Borrow approaches from other fields 
-    - (bioinformatics, climatology, economics, ecology, physics) 
-    - similar data formats, related analytical challenges !
+Suljettu data ja räätälöidyt työkalut -> avoin data ja joustavat työkalut
+
+
+Laskennallisten menetelmien kasvava merkitys
+-------------------------------------------
+
+Uusia sovelluksia lainaamalla muiden tieteenalojen menetelmistä
+
+- sequence analysis (genomics) -> Social sequence analysis
+- networks analysis (computer science) -> social network analysis
+- spatial inference (geography) -> spatial econometrics 
+
+<hr>
+
+- samankaltaisia datarakenteita
+- samakaltaisia analyyttisiä ongelmia
 
 
 From Data to Knowledge
@@ -99,6 +105,25 @@ New tools, new opportunities
 3. Analytical tools to monitor decision-making, demographics,   economy, environment, historical data, etc.
 4. Transparent & reproducible social science research
 5. Wider implications: academic research, citizen science,   data journalism, education, ...
+
+
+
+=======================================================
+title:false
+
+
+TCWR
+------------------------------------------
+
+>Turku Center for Welfare Research was founded in 1997 in a cooperative effort by the three universities in Turku (Åbo). **The Center is intended to more efficiently coordinate resources, both in teaching and research.**
+
+rOpenGov
+------------------------------------
+
+>The rapidly emerging governmental and other open data streams provide novel opportunities for social sciences, data journalism, and citizen participation across the globe while computational tools to utilize these resources are lacking. **A community-driven software ecosystem provides a scalable solution and a potential to revolutionize the field, taking advantage of the lessons learned in similar initiatives in other fields such as [Bioconductor](http://www.bioconductor.org/) and [rOpenSci](http://ropensci.org/).**
+
+
+
 
 
 
@@ -140,23 +165,24 @@ rOpenGov on yhteisöllinen projekti, joka rakentuu **ydintiimistä**, **pakettie
 
 **Käyttäjäyhteisö** koostuu akateemisista tutkijoista, opiskelijoista, datajournalisteista, kansalaistieteilijöistä ja muista kiinnostuneista.
 
-**Ydintiimin** palvelee kehittäjiä ja käyttäjiä ylläpitämällä infrastruktuuria, arvioimalla uusia paketteja ja laatimalla suosituksia pakettien toiminnalle. Ydintiimin jäsenillä on laskennallisten tieteiden koulutus:
+**Ydintiimin** palvelee kehittäjiä ja käyttäjiä ylläpitämällä infrastruktuuria, arvioimalla uusia paketteja ja laatimalla suosituksia pakettien toiminnalle. Ydintiimin jäsenillä on laskennallisten tai yhteiskuntatieteiden koulutus:
 
 - [Leo Lahti](http://www.iki.fi/Leo.Lahti) (Univ. Helsinki, Finland and Wageningen Univ., Netherlands)
 - [Juuso Parkkinen](http://ouzor.github.io/) (Aalto Univ., Finland) 
 - [Joona Lehtomäki](https://github.com/jlehtoma) (University of Helsinki, Finland).
+- [Markus Kainu](http://markuskainu.fi/) - (University of Turku, Finland)
 
 ==============================================
 
 **Pakettien kehittäjien** [projektit](http://ropengov.github.io/projects) helpottavat erilaisten lasennalliselle yhteiskuntatutkimukselle relevanttien datalähteiden ohjelmoinnillista hyödyntämistä. Mm. seuraavat eri tieteenalojen tutkijat ovat aktiivisesti mukana omien pakettiensa ja koko projektin kehitystyössä:
 
+- [Vincent Arel-Bundock](https://www.lsa.umich.edu/polisci/people/graduatestudents/ci.arelbundockvincent_ci.detail) - [The University of Michigan’s Department of Political Science](https://www.lsa.umich.edu/polisci)
 - [Przemyslaw Biecek](http://www.biecek.pl/) - [University of Warsaw](http://www.icm.edu.pl/web/guest/home)
 - [François Briatte](http://f.briatte.org/) - [European School of Political and Social Sciences](http://espol-lille.eu/)
 - [Scott Chamberlain](http://scottchamberlain.info/) - [Simon Fraser University in Vancouver](http://www.biology.sfu.ca/)
 - [Manuel Eugster](http://users.ics.aalto.fi/meugster/) - [Helsinki Institute for Information Technology: Statistical Machine Learning and Bioinformatics Group](http://research.ics.aalto.fi/mi/)
 - [Christopher Gandrud](http://christophergandrud.blogspot.fi/) - [Hertie School of Governance](http://www.hertie-school.org/)
 - [Love Hansson](https://github.com/LCHansson) - [Swedish Pensions Agency](http://www.pensionsmyndigheten.se/)
-- [Markus Kainu](http://markuskainu.fi/) - [Sosiaalitieteden laitos, Turun yliopisto](https://www.utu.fi/fi/yksikot/soc/yksikot/sosiaalitieteet/Sivut/home.aspx)
 - [Stefan Kasberger](https://github.com/skasberger) - [openscienceASAP](http://openscienceasap.org/)
 - [Thomas J. Leeper](http://thomasleeper.com/) - [Aarhus University](http://ps.au.dk/en/)
 - [Måns Magnusson](https://github.com/MansMeg) - [Linköpings Universitet](http://www.liu.se/?l=en)
