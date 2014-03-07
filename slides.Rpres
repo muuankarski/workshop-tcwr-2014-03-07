@@ -33,7 +33,7 @@ http://www.harvestmeat.com/wp-content/uploads/2010/09/underconstruction-Copy.jpg
 -------------------------------------- -->
 
 
-Esityksen rakenne
+Mistä puhun
 ========================================================
 incremental: true
 
@@ -65,10 +65,12 @@ Muutos?
 
 
 ===================================================
-
-- internet & avoimet yhteisöt
+</br>
+</br>
+</br>
+- internet
 - avoin lähdekoodi
-- MOOC ja ohjelmoinnin renessanssi
+
 
 
 Muutos!
@@ -81,7 +83,6 @@ incremental: true
 - Suljettu data ja räätälöidyt työkalut => 
 - avoin data ja joustavat työkalut
 
-
 2. Laskennallisten menetelmien kasvava merkitys
 -------------------------------------------
 
@@ -89,6 +90,8 @@ incremental: true
     - sequence analysis (genomics) -> Social sequence analysis
     - networks analysis (computer science) -> Social network analysis
     - spatial inference (geography) -> Spatial econometrics 
+
+
 
 ====================================
 title:false 
@@ -164,6 +167,8 @@ rOpenGov on yhteisöllinen projekti, joka rakentuu **ydintiimistä**, **pakettie
 - [Juuso Parkkinen](http://ouzor.github.io/) (Aalto Univ., Finland) 
 - [Joona Lehtomäki](https://github.com/jlehtoma) (University of Helsinki, Finland).
 - [Markus Kainu](http://markuskainu.fi/) (University of Turku, Finland)
+
+
 
 ==============================================
 

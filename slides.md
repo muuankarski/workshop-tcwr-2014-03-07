@@ -23,6 +23,9 @@ transition-speed: fast
 
 <!-- ---| notes begin |--------------------------------
 
+Kyseessä ei ole tavanomainen tutkimuksen ja sen tulosten esittely, vaan erään *laskennallisen yhteiskuntatutkimuksen* edistämiseen keskittyvän ohjelmistoprojektin esittely.
+
+Vaikka mä saatan kuulostaa myyntimieheltä, niin mä yritän olla kuulostamatta. Se tarve mihin tällä projektilla pyritään tähtäämään on mun parhaan tietämyksen mukaan todellinen ja olemassa, ja mä näen että nyt alkaa olla aika kiireesti tarttua siihen tai datanälköiset journalistit ottaa niskalenkin ainakin medianäkyvyyden mielessä.   
 
 http://www.harvestmeat.com/wp-content/uploads/2010/09/underconstruction-Copy.jpg
 
@@ -30,7 +33,7 @@ http://www.harvestmeat.com/wp-content/uploads/2010/09/underconstruction-Copy.jpg
 -------------------------------------- -->
 
 
-Esityksen rakenne
+Mistä puhun
 ========================================================
 incremental: true
 
@@ -60,15 +63,13 @@ Muutos?
 
 >In the next half-century, these sources will still be used and improved, but the number and diversity of other sources of information are increasing exponentially and are already many orders of magnitude more informative than ever before.
 
-Muutos?
-=======================================================
 
-
-[*Rufus Pollock 4.3.2014 in Al Jazeera*](http://www.aljazeera.com/indepth/opinion/2013/10/small-data-revolution-real-re-20131031111430442239.html)
-
->Big Data smacks of the centralization fads we've seen in each computing era. The notion that there's more data than we can process - something which has - no doubt - always been true, year on year, since computing began - has been dressed up as the latest trend, complete with associated technology must-haves.
-
->Meanwhile, a much more important story, the real revolution, is being overlooked: the mass democratisation of the means of access, storage, and processing of data. This story isn't about large organisations running parallel software on tens of thousands of servers, but about more people than ever being able to collaborate effectively around a distributed ecosystem of information, an ecosystem of Small Data.
+===================================================
+</br>
+</br>
+</br>
+- internet
+- avoin lähdekoodi
 
 
 
@@ -82,7 +83,6 @@ incremental: true
 - Suljettu data ja räätälöidyt työkalut => 
 - avoin data ja joustavat työkalut
 
-
 2. Laskennallisten menetelmien kasvava merkitys
 -------------------------------------------
 
@@ -90,6 +90,8 @@ incremental: true
     - sequence analysis (genomics) -> Social sequence analysis
     - networks analysis (computer science) -> Social network analysis
     - spatial inference (geography) -> Spatial econometrics 
+
+
 
 ====================================
 title:false 
@@ -109,7 +111,6 @@ Tarve edistää yhteistyötä tietojenkäsittelytieteiden ja yhteiskuntatieteide
 - työvaiheiden dokumentointi paranee ja avautuu
 - läpinäkyvyys ja toistettavuus paranee (validiteetin ja reliabiliteetin näkökulma)
     - *For quantitatively oriented manuscripts that utilize real or simulated data, authors are strongly encouraged to offer their data and code online to other researchers.* [(Sociological Science)](http://www.sociologicalscience.com/for-authors/submission-guidelines/)
-    - [Science Magazine]()
 - otetaan käyttöön uusia julkaisuformaatteja ja saadaan lisänäkyvyyttä tutkimukselle
 - laajempia vaikutuksia yhteiskuntaan, kuten päätöksentekoon, kansalaistieteeseen, datajournalismiin, opetukseen
 
@@ -166,6 +167,8 @@ rOpenGov on yhteisöllinen projekti, joka rakentuu **ydintiimistä**, **pakettie
 - [Juuso Parkkinen](http://ouzor.github.io/) (Aalto Univ., Finland) 
 - [Joona Lehtomäki](https://github.com/jlehtoma) (University of Helsinki, Finland).
 - [Markus Kainu](http://markuskainu.fi/) (University of Turku, Finland)
+
+
 
 ==============================================
 
@@ -327,6 +330,16 @@ Liity yhteisöön!
 - [rOpenGov blog](http://ropengov.github.io/)
 - [Twitter](https://twitter.com/ropengov)
 - Liity [ropengov-forum@googlegroups.com](https://groups.google.com/forum/#!forum/ropengov-forum) sähköpostilistalle
+
+Muutos?
+=======================================================
+
+
+[*Rufus Pollock 4.3.2014 in Al Jazeera*](http://www.aljazeera.com/indepth/opinion/2013/10/small-data-revolution-real-re-20131031111430442239.html)
+
+>Big Data smacks of the centralization fads we've seen in each computing era. The notion that there's more data than we can process - something which has - no doubt - always been true, year on year, since computing began - has been dressed up as the latest trend, complete with associated technology must-haves.
+
+>Meanwhile, a much more important story, the real revolution, is being overlooked: the mass democratisation of the means of access, storage, and processing of data. This story isn't about large organisations running parallel software on tens of thousands of servers, but about more people than ever being able to collaborate effectively around a distributed ecosystem of information, an ecosystem of Small Data.
 
 
 ========================================================
